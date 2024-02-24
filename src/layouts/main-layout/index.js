@@ -1,0 +1,1 @@
+export { default as AppLayoutMain } from './main-layout.vue'
