@@ -1,0 +1,90 @@
+@use 'sass:map';
+
+$breakpoint-symbols:
+  'bp-375',
+  'bp-540',
+  'bp-600',
+  'bp-768',
+  'bp-1024',
+  'bp-1120',
+  'bp-1280',
+  'bp-1360',
+;
+
+$breakpoint-values:
+  375px,
+  540px,
+  600px,
+  768px,
+  1024px,
+  1120px,
+  1280px,
+  1360px,
+;
+
+$breakpoint-names:
+  'mobile',
+  'mobile-large',
+  'tablet-small',
+  'tablet',
+  'tablet-large',
+  'desktop-small',
+  'desktop',
+  'desktop-large',
+;
+
+@function build-map-from-lists($list1, $list2) {
+  $zipped: zip($list1, $list2);
+  $map: ();
+
+  @each $key, $value in $zipped {
+    $map: map.set($map, $key, $value);
+  }
+
+  @return $map;
+}
+
+$map-breakpoints: build-map-from-lists($breakpoint-symbols, $breakpoint-values);
+
+@function get-bp($type) {
+  @if not map-has-key($map: $map-breakpoints, $key: $type) {
+    @error 'Undefined type of breakpoint #{type}';
+  }
+
+  @return map-get($map: $map-breakpoints, $key: $type);
+}
+
+$mobile: get-bp(bp-375);
+$mobile-large: get-bp(bp-540);
+$tablet-small: get-bp(bp-600);
+$tablet: get-bp(bp-768);
+$tablet-large: get-bp(bp-1024);
+$desktop-small: get-bp(bp-1120);
+$desktop: get-bp(bp-1280);
+$desktop-large: get-bp(bp-1360);
+
+@mixin from($type) {
+  @media screen and (min-width: $type) {
+    @content;
+  }
+}
+
+@mixin till($type) {
+  @media screen and (max-width: $type - 1) {
+    @content;
+  }
+}
+
+@mixin between($type-from, $type-till) {
+  @media screen and (min-width: $type-from) and (max-width: $type-till - 1) {
+    @content;
+  }
+}
+
+$map-breakpoints-with-names: build-map-from-lists($breakpoint-names, $breakpoint-values);
+
+:export {
+  @each $key, $value in $map-breakpoints-with-names {
+    #{unquote($key)}: $value;
+  }
+}
