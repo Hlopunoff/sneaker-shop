@@ -1,0 +1,34 @@
+$colors-typography: (
+  'base': #000,
+  'base-1': #fff,
+  'base-2': #9d9d9d,
+  'base-3': #5c5c5c,
+  'base-4': #bdbdbd,
+  'base-5': #8bb43c,
+  'base-6': #c4c4c4,
+  'base-7': #87c20a, 
+);
+
+$colors-background: (
+  'base': #fff,
+  'base-1': #e7f6ff,
+  'base-2': #a5d364,
+  'base-3': #f2f2f2,
+  'base-4': #f6f6f6,
+  'base-5': #f3f3f3,
+  'base-6': #eaeaea,
+  'base-7': #000,
+);
+
+$colors: (
+  'typography': $colors-typography,
+  'background': $colors-background,
+);
+
+@function color($color-name, $color-variant: null) {
+  @if $color-variant {
+    @return map-get($map: map-get($colors, $color-name), $key: $color-variant);
+  }
+
+  @return map-get($colors, $color-name);
+}
