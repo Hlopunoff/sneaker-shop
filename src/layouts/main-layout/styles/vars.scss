@@ -1,6 +1,0 @@
-@use '@/assets/base/styles/colors';
-
-$name: 'main-layout';
-$block: '.' + $name;
-
-$background-color: colors.color('background', 'base'); 
