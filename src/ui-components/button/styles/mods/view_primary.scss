@@ -1,0 +1,12 @@
+#{$block}_view_primary {
+  color: $view-primary-color;
+  background-color: $view-primary-background-color;
+
+  &:hover {
+    background-color: $view-primary-background-color-hover;
+  }
+
+  &:active {
+    background-color: $view-primary-background-color-active;
+  }
+}

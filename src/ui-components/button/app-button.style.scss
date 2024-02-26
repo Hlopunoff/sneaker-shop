@@ -1,0 +1,18 @@
+@import './styles/vars';
+
+@import './styles/mods/view_primary';
+@import './styles/mods/view_secondary';
+@import './styles/mods/view_third';
+@import './styles/mods/full';
+
+#{$block} {
+  padding: $padding-y $padding-x;
+  border: none;
+  border-radius: 12px;
+
+  font-size: 16px;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+
+  transition: color 0.3s ease, background-color 0.3s ease;
+}

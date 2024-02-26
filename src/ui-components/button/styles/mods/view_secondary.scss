@@ -1,0 +1,12 @@
+#{$block}_view_secondary {
+  color: $view-secondary-color;
+  background-color: $view-secondary-background-color;
+
+  &:hover {
+    background-color: $view-secondary-background-color-hover;
+  }
+
+  &:active {
+    background-color: $view-secondary-background-color-active;
+  }
+}

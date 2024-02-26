@@ -1,0 +1,12 @@
+#{$block}_view_third {
+  background-color: transparent;
+  color: $view-third-color;
+
+  &:hover {
+    color: $view-third-color-hover;
+  }
+
+  &:active {
+    color: $view-third-color-active;
+  }
+}
