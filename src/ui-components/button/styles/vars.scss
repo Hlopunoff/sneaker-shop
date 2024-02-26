@@ -1,0 +1,21 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-button';
+$block: '.' + $name;
+
+$padding-y: 16px;
+$padding-x: 80px;
+
+$view-primary-color: colors.color('typography', 'base-7');
+$view-primary-background-color: colors.color('background', 'base');
+$view-primary-background-color-hover: colors.color('background', 'base-1');
+$view-primary-background-color-active: colors.color('background', 'base-8');
+
+$view-secondary-color: colors.color('typography', 'base');
+$view-secondary-background-color: colors.color('background', 'base-7');
+$view-secondary-background-color-hover: colors.color('background', 'base-5');
+$view-secondary-background-color-active: colors.color('background', 'base-8');
+
+$view-third-color: colors.color('typography', 'base');
+$view-third-color-hover: colors.color('typography', 'base-1');
+$view-third-color-active: colors.color('typography', 'base-8');
