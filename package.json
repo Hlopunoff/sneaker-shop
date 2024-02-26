@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "bem-cn-lite": "^4.1.0",
@@ -16,10 +18,21 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/test": "^7.6.17",
+    "@storybook/vue3": "^7.6.17",
+    "@storybook/vue3-vite": "^7.6.17",
     "@vitejs/plugin-vue": "^5.0.3",
     "eslint": "^8.49.0",
+    "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-vue": "^9.17.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.71.1",
+    "storybook": "^7.6.17",
     "vite": "^5.0.11"
   }
 }
