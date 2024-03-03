@@ -1,0 +1,9 @@
+@import './styles/vars';
+
+@import './styles/elems/main';
+
+#{$block} {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
