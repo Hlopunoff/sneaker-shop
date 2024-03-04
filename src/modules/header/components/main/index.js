@@ -1,0 +1,1 @@
+export { default as HeaderMain } from './header-main.vue'

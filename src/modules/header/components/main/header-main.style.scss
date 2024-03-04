@@ -1,0 +1,7 @@
+@import './styles/vars';
+
+#{$block} {
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+  padding-top: 24px;
+}

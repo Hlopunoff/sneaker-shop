@@ -1,6 +1,6 @@
 <template>
   <div :class="b()">
-    <header>Header</header>
+    <header-main :class="b('header')"/>
     <main :class="b('main')">
         <router-view/>
     </main>

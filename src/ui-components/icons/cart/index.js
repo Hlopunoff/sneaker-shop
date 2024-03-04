@@ -1,0 +1,1 @@
+export { default as AppCartIcon } from './cart-icon.vue'

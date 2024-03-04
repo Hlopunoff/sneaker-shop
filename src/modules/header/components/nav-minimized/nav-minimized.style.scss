@@ -1,0 +1,12 @@
+@import './styles/vars';
+
+@import './styles/elems/logo';
+@import './styles/elems/burger';
+@import './styles/elems/line';
+
+#{$block} {
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
