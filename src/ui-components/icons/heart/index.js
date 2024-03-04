@@ -1,0 +1,1 @@
+export { default as AppHeartIcon } from './heart-icon.vue'

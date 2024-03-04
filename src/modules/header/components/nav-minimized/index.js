@@ -1,0 +1,1 @@
+export {default as AppNavMinimized} from './nav-minimized.vue'

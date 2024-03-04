@@ -1,0 +1,11 @@
+@use '@/assets/base/styles/common';
+@use '@/assets/base/styles/colors';
+
+$name: 'header-main';
+$block: '.' + $name;
+
+$padding-x: common.$main-layout-padding-x;
+
+$info-link-color: colors.color('typography', 'base-2');
+
+$social-link-size: 32px;

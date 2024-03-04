@@ -1,0 +1,13 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'nav-expanded';
+$block: '.' + $name;
+
+$info-link-color: colors.color('typography', 'base-2');
+
+$social-link-size: 32px;
+
+$category-color: colors.color('typography', 'base');
+$category-color-hover: colors.color('typography', 'base-8');
+
+$nav-bottom-padding-y: 30px;

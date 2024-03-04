@@ -1,0 +1,1 @@
+export { default as AppSearchIcon } from './search-icon.vue'

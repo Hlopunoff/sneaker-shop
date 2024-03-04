@@ -1,0 +1,16 @@
+@use '@/assets/base/styles/with';
+
+#{$block}__category {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.16px;
+  color: $category-color;
+  transition: color 0.2s ease;
+
+  @include with.hover {
+    &:hover {
+      color: $category-color-hover;
+    }
+  }
+}

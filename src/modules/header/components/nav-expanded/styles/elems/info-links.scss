@@ -1,0 +1,12 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__info-links {
+  flex: 1;
+  display: flex;
+  align-items: center;
+
+  @include bp.from(bp.$tablet) {
+    column-gap: 20px;
+    margin-left: 48px;
+  }
+}
