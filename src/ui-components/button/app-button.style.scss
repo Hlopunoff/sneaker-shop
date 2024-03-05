@@ -6,6 +6,7 @@
 @import './styles/mods/full';
 
 #{$block} {
+  font-family: $font-family;
   padding: $padding-y $padding-x;
   border: none;
   border-radius: 12px;

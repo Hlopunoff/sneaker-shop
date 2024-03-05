@@ -1,0 +1,1 @@
+export { default as AppHomeSlider } from './home-slider.vue'

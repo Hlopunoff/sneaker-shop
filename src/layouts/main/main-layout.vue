@@ -1,9 +1,7 @@
 <template>
   <div :class="b()">
     <header-main :class="b('header')"/>
-    <main :class="b('main')">
-        <router-view/>
-    </main>
+    <router-view/>
     <footer>Footer</footer>
   </div>
 </template>

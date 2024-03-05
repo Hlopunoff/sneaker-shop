@@ -1,0 +1,1 @@
+export { default as AppSliderArrowIcon } from './slider-arrow-icon.vue'

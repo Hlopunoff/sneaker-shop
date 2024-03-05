@@ -1,0 +1,11 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-home-slider';
+$block: '.' + $name;
+
+$dot-size: 12px;
+$dot-border-color: colors.color('background', 'base-7');
+$dot-background-color-active: $dot-border-color;
+
+$title-color: colors.color('typography', 'base-7');
+$text-color: $title-color;

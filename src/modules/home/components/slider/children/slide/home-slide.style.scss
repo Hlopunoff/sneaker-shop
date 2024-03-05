@@ -1,0 +1,11 @@
+@import './styles/vars';
+
+@import './styles/elems/image';
+@import './styles/elems/content';
+
+#{$block} {
+  padding: 180px 80px;
+  position: relative;
+  min-width: 100%;
+  border-radius: inherit;
+}

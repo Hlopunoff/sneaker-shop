@@ -1,0 +1,12 @@
+#{$block}__dot {
+  width: $dot-size;
+  height: $dot-size;
+  border: 1px solid $dot-border-color;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: all 0.2s ease;
+
+  &_active {
+    background-color: $dot-background-color-active;
+  }
+}
