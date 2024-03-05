@@ -1,0 +1,1 @@
+export { default as AppHomeMain } from './home-main.vue'

@@ -1,10 +1,13 @@
 @use '@/assets/base/styles/colors';
+@use '@/assets/base/styles/common';
 
 $name: 'app-button';
 $block: '.' + $name;
 
 $padding-y: 16px;
 $padding-x: 80px;
+
+$font-family: common.$font-family-primary;
 
 $view-primary-color: colors.color('typography', 'base-7');
 $view-primary-background-color: colors.color('background', 'base');
