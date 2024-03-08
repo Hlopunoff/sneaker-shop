@@ -1,0 +1,1 @@
+export { default as AppHomeBrands } from './home-brands.vue'

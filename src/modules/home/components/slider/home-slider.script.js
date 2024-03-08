@@ -1,10 +1,12 @@
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { useBreakpoints } from '@vueuse/core'
 
 import { AppHomeSlide } from './children/slide'
 import { AppButton, VIEW } from '@/ui-components/button'
 import { AppSliderArrowIcon } from '@/ui-components/icons'
 
 import { useBem } from "@/composables/use" 
+import { BREAKPOINTS } from '@/constants' 
 
 export default {
   name: 'app-home-slider',
@@ -19,7 +21,7 @@ export default {
     },
     delay: {
       type: Number,
-      default: 3000,
+      default: 5000,
     },
   },
   components: {
@@ -29,10 +31,14 @@ export default {
   },
   setup(props) {
     const b = useBem('app-home-slider')
+    const bp = useBreakpoints(BREAKPOINTS)
     const slideButtonView = VIEW.SECONDARY
     let sliderInterval
 
     const currentSlideIndex = ref(0)
+
+    const tillTablet = computed(() => bp.MOBILE.value && !bp.TABLET.value)
+    const showSliderArrows = computed(() => !tillTablet.value)
 
     const prevSlide = () => {
       if (currentSlideIndex.value > 0) {
@@ -55,7 +61,9 @@ export default {
     }
 
     onMounted(() => {
-      sliderInterval = setInterval(nextSlide, props.delay)
+      if (props.autoplay) {
+        sliderInterval = setInterval(nextSlide, props.delay)
+      }
     })
 
     onUnmounted(() => {
@@ -70,6 +78,7 @@ export default {
       nextSlide,
       currentSlideIndex,
       onDotClick,
+      showSliderArrows,
     }
   }
 }

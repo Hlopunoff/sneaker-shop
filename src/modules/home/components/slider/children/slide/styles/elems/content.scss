@@ -1,1 +1,7 @@
-#{$block}__content {}
+@use '@/assets/base/styles/bp';
+
+#{$block}__content {
+  @include bp.till(bp.$tablet) {
+    text-align: center;
+  }
+}

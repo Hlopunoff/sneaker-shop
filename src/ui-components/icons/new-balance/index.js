@@ -1,0 +1,1 @@
+export { default as AppNewBalanceIcon } from './new-balance-icon.vue'

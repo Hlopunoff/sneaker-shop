@@ -1,0 +1,15 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__brands {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 20px;
+
+  @include bp.till(bp.$tablet) {
+    animation-name: auto-scroll;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;
+    animation-delay: 1s;
+  }
+}

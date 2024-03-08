@@ -1,0 +1,11 @@
+@use '@/assets/base/styles/bp';
+
+@import './styles/vars';
+
+@import './styles/elems/brands';
+@import './styles/elems/item';
+
+#{$block} {
+  margin-top: 32px;
+  overflow-x: hidden;
+}

@@ -1,11 +1,24 @@
+@use '@/assets/base/styles/bp';
+
 @import './styles/vars';
 
 @import './styles/elems/image';
 @import './styles/elems/content';
 
 #{$block} {
-  padding: 180px 80px;
   position: relative;
   min-width: 100%;
   border-radius: inherit;
+
+  @include bp.till(bp.$mobile-large) {
+    padding: 24px 24px 60px 24px;
+  }
+
+  @include bp.between(bp.$mobile-large, bp.$tablet) {
+    padding: 100px 80px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    padding: 180px 80px;
+  }
 }

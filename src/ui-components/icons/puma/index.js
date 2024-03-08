@@ -1,0 +1,1 @@
+export { default as AppPumaIcon } from './puma-icon.vue'

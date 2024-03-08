@@ -1,0 +1,1 @@
+export { default as AppAdidasIcon } from './adidas-icon.vue'
