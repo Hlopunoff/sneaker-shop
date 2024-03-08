@@ -1,0 +1,14 @@
+$name: 'app-home-brands';
+$block: '.' + $name;
+
+@keyframes auto-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(-96px * 3));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

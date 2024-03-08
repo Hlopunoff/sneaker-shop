@@ -1,0 +1,1 @@
+export { default as AppNorthFaceIcon } from './north-face-icon.vue'

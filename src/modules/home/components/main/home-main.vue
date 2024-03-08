@@ -1,6 +1,7 @@
 <template>
   <main :class="b()">
-    <app-home-slider :class="b('slider')" :slides="promoSliderData"/>
+    <app-home-slider :class="b('slider')" :slides="promoSliderData" :autoplay="false"/>
+    <app-home-brands/>
   </main>
 </template>
 

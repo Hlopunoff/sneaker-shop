@@ -1,9 +1,19 @@
+@use '@/assets/base/styles/bp';
+
 #{$block}__text {
-  margin-top: 24px;
   color: $text-color;
   font-weight: 400;
-  font-size: 20px;
   line-height: 1.6;
   letter-spacing: 0.2px;
   max-width: 560px;
+
+  @include bp.till(bp.$tablet) {
+    font-size: 15px;
+    margin-top: 16px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    font-size: 20px;
+    margin-top: 24px;
+  }
 }

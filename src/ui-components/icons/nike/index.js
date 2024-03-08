@@ -1,0 +1,1 @@
+export { default as AppNikeIcon } from './nike-icon.vue'

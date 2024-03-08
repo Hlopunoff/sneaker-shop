@@ -1,0 +1,1 @@
+export { default as AppJordanIcon } from './jordan-icon.vue'

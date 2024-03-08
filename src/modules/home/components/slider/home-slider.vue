@@ -9,7 +9,7 @@
           </app-home-slide>
         </div>
         <nav :class="b('cta')">
-            <app-slider-arrow-icon :width="32" :height="32" fill="#fff" @click="prevSlide"/>
+            <app-slider-arrow-icon v-if="showSliderArrows" :width="32" :height="32" fill="#fff" @click="prevSlide"/>
             <ul :class="b('dots')">
               <li 
                 v-for="(slide, index) in slides" 
@@ -17,7 +17,7 @@
                 :class="b('dot', { active: index === currentSlideIndex })"
                 @click="onDotClick(index)"></li>
             </ul>
-            <app-slider-arrow-icon :width="32" :height="32" fill="#fff" reversed @click="nextSlide"/>
+            <app-slider-arrow-icon v-if="showSliderArrows" :width="32" :height="32" fill="#fff" reversed @click="nextSlide"/>
           </nav>
       </div>
   </section>

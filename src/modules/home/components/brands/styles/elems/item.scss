@@ -1,0 +1,17 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include bp.till(bp.$tablet) {
+    width: 96px;
+    height: 68px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    width: 187px;
+    height: 96px;
+  }
+}
