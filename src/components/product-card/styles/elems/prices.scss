@@ -1,0 +1,15 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__prices {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include bp.till(bp.$tablet) {
+    column-gap: 8px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    column-gap: 12px;
+  }
+}

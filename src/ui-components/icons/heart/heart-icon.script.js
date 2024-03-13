@@ -1,3 +1,5 @@
+import { useBem } from "@/composables/use"
+
 export default {
   name: 'app-heart-icon',
   props: {
@@ -13,9 +15,12 @@ export default {
       type: Boolean,
       default: true,
     },
-    fill: {
-      type: String,
-      default: '',
+  },
+  setup() {
+    const b = useBem('app-heart-icon')
+
+    return {
+      b,
     }
   }
 }

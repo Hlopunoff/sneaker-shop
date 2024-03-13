@@ -1,0 +1,20 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__discount {
+  @include bp.till(bp.$tablet) {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1.1;
+    color: $discount-color-mobile;
+  }
+
+  @include bp.from(bp.$tablet) {
+    padding: $discount-padding-y $discount-padding-x;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4;
+    color: $discount-color-tablet;
+    background-color: $discount-background-color-tablet;
+    border-radius: 8px;
+  }
+}

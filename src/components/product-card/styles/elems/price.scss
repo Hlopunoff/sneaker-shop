@@ -1,0 +1,38 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__price {
+  &_current {
+    font-weight: 700;
+    color: $current-price-color;
+  }
+
+  &_old {
+    font-weight: 400;
+    text-decoration: line-through;
+    color: $old-price-color;
+  }
+
+  @include bp.till(bp.$tablet) {
+    line-height: 1.1;
+
+    &_current {
+      font-size: 14px;
+    }
+
+    &_old {
+      font-size: 10px;
+    }
+  }
+
+  @include bp.from(bp.$tablet) {
+    line-height: 1.5;
+
+    &_current {
+      font-size: 24px;
+    }
+
+    &_old {
+      font-size: 18px;
+    }
+  }
+}
