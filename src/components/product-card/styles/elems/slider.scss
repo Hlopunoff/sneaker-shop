@@ -1,0 +1,13 @@
+#{$block}__slider {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  transition: all 0.5s ease-in-out;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

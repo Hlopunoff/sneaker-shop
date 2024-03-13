@@ -1,0 +1,9 @@
+#{$block}__heart-icon {
+  fill: $heart-icon-fill;
+  stroke: $heart-icon-stroke;
+
+  &_active {
+    fill: $active-heart-icon-fill;
+    stroke: $active-heart-icon-stroke;
+  }
+}

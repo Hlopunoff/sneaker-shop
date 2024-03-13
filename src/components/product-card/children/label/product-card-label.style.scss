@@ -1,0 +1,11 @@
+@import './styles/vars';
+
+@import './styles/mods/size_m';
+@import './styles/mods/size_s';
+
+#{$block} {
+  padding: $padding-y $padding-x;
+  font-weight: 500;
+  line-height: 1.4;
+  border-radius: 8px;
+}

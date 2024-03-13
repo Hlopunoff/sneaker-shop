@@ -1,0 +1,2 @@
+export const SLIDER_COLUMNS_DESKTOP = 3
+export const SLIDER_COLUMNS_MOBILE = 2

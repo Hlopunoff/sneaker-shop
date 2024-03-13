@@ -1,0 +1,15 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-home-product-slider';
+$block: '.' + $name;
+
+$title-color: colors.color('typography', 'base');
+
+$arrow-fill: colors.color('background', 'base');
+
+$products-columns-mobile: 2;
+$products-columns-desktop: 3;
+$products-column-gap: 20px;
+
+$product-width-desktop: calc((100% - ($products-column-gap * ($products-columns-desktop - 1))) / $products-columns-desktop);
+$product-width-mobile: calc((100% - ($products-column-gap * ($products-columns-mobile - 1))) / $products-columns-mobile);

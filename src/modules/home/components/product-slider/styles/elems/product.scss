@@ -1,0 +1,17 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__product {
+  @include bp.till(bp.$tablet) {
+    min-width: $product-width-mobile;
+
+    // Подумать, может есть решение лучше
+    //! На tablet+ все ломается
+    &:nth-child(odd):not(:first-child) {
+      margin-left: -20px;
+    }
+  }
+
+  @include bp.from(bp.$tablet) {
+    min-width: $product-width-desktop;
+  }
+}

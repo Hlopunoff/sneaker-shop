@@ -1,0 +1,14 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__wrap {
+  min-width: 100%;
+  overflow: hidden;
+
+  @include bp.till(bp.$tablet) {
+    margin-top: 16px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 32px;
+  }
+}

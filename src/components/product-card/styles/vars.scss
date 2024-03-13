@@ -1,0 +1,27 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-product-card';
+$block: '.' + $name;
+
+$dot-size: 8px;
+$dot-border-color: colors.color('background', 'base-2');
+$active-dot-background-color: colors.color('background', 'base-2');
+
+$current-price-color: colors.color('typography', 'base');
+$old-price-color: colors.color('typography', 'base-2');
+
+$discount-padding-x: 8px;
+$discount-padding-y: 4px;
+$discount-color-tablet: colors.color('typography', 'base-7');
+$discount-color-mobile: colors.color('typography', 'base-8');
+$discount-background-color-tablet: colors.color('background', 'base-9');
+
+$name-color: colors.color('typography', 'base-1');
+
+$cart-button-padding-x: 18px;
+$cart-button-padding-y: 8px;
+
+$heart-icon-fill: none;
+$heart-icon-stroke: colors.color('background', 'base');
+$active-heart-icon-fill: colors.color('background', 'base-8');
+$active-heart-icon-stroke: colors.color('background', 'base-8');
