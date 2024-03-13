@@ -3,6 +3,7 @@
     <app-home-slider :class="b('slider')" :slides="promoSliderData" :autoplay="false"/>
     <app-home-brands/>
     <app-home-product-slider/>
+    <app-home-banner/>
   </main>
 </template>
 

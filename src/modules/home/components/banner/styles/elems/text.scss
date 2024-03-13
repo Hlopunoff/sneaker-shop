@@ -1,0 +1,17 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__text {
+  max-width: 740px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  font-weight: 400;
+
+  @include bp.till(bp.$tablet) {
+    font-size: 16px;
+    order: -1;
+  }
+
+  @include bp.from(bp.$tablet) {
+    font-size: 20px;
+  }
+}
