@@ -1,0 +1,14 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__image-wrap {
+  margin-bottom: -5px;
+  
+  @include bp.till(bp.$tablet-small) {
+    width: 100%;
+  }
+
+  @include bp.from(bp.$tablet-small) {
+    min-width: 260px;
+    max-width: 260px;
+  }
+}

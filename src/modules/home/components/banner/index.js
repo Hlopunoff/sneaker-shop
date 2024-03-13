@@ -1,0 +1,1 @@
+export { default as AppHomeBanner } from './home-banner.vue'

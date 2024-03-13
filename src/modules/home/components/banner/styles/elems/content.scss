@@ -1,0 +1,22 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__content {
+  width: 100%;
+  background: linear-gradient(225deg, #fff385 2.97%, #fff0ba 100%);
+  border-radius: 12px;
+  display: flex;
+
+  @include bp.till(bp.$tablet) {
+    flex-direction: column;
+    row-gap: 16px;
+    padding: 24px 24px 0 24px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-bottom: -5px;
+    column-gap: 46px;
+    padding: 32px 32px 0 32px;
+    align-items: center;
+    justify-content: center;
+  }
+}
