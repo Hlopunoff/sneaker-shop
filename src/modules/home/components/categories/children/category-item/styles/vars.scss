@@ -1,0 +1,9 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-home-category-item';
+$block: '.' + $name;
+
+$background-color: colors.color('background', 'base-5');
+$name-color: colors.color('typography', 'base');
+$name-color-tablet: colors.color('typography', 'base-3');
+$min-price-background-color: colors.color('typography', 'base-7');

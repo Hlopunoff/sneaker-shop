@@ -1,0 +1,22 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__button {
+  display: inline-block;
+  width: max-content;
+  padding: 8px 20px;
+  border-radius: 12px;
+  margin-top: auto;
+  background-color: $min-price-background-color;
+  z-index: 10;
+
+  font-weight: 500;
+  line-height: 1.5;
+
+  @include bp.till(bp.$tablet) {
+    font-size: 14px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    font-size: 16px;
+  }
+}

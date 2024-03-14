@@ -1,0 +1,20 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__name {
+  font-weight: 500;
+  line-height: 150%;
+  color: $name-color;
+  z-index: 10;
+
+  @include bp.till(bp.$tablet) {
+    font-size: 16px;
+  }
+
+  @include bp.between(bp.$tablet, bp.$desktop-small) {
+    color: $name-color-tablet;
+  }
+
+  @include bp.from(bp.$tablet) {
+    font-size: 24px;
+  }
+}

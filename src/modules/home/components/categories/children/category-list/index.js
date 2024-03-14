@@ -1,0 +1,1 @@
+export { default as AppHomeCategoryList } from './category-list.vue'
