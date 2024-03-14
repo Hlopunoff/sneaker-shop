@@ -1,0 +1,26 @@
+@use '@/assets/base/styles/bp';
+
+@import './styles/vars';
+
+@import './styles/elems/image';
+@import './styles/elems/name';
+@import './styles/elems/min-price';
+@import './styles/elems/description';
+@import './styles/elems/button';
+
+#{$block} {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background-color: $background-color;
+  
+
+  @include bp.till(bp.$tablet) {
+    padding: 16px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    padding: 24px;
+  }
+}

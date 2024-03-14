@@ -1,0 +1,1 @@
+export { default as AppHomeCategories } from './home-categories.vue'

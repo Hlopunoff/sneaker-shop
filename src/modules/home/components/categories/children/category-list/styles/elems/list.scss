@@ -1,0 +1,29 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__list {
+  display: grid;
+
+  @include bp.till(bp.$tablet) {
+    margin-top: 16px;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 170px);
+    row-gap: 12px;
+  }
+
+  @include bp.between(bp.$tablet, bp.$desktop-small) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, minmax(80px, 115px));
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 32px;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  @include bp.from(bp.$desktop-small) {
+    grid-template-columns: repeat(4, minmax(115px, 1fr));
+    grid-template-rows: repeat(5, 100px);
+  }
+}

@@ -4,6 +4,7 @@
     <app-home-brands/>
     <app-home-product-slider/>
     <app-home-banner/>
+    <app-home-categories/>
   </main>
 </template>
 

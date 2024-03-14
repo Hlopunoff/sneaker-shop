@@ -1,0 +1,35 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__category {
+  &_deliveries {
+    background-color: $delivery-category-background-color;
+  }
+
+
+  @include bp.from(bp.$tablet) {
+    &_trainers {
+      grid-column: 1 / 3;
+      grid-row: 1 / 4;
+    }
+
+    &_trausers {
+      grid-column: 3 / 4;
+      grid-row: 1 / 3;
+    }
+
+    &_shirts {
+      grid-column: 4 / 5;
+      grid-row: 1 / 3;
+    }
+
+    &_hoodies {
+      grid-column: 3 / 5;
+      grid-row: 3 / 6;
+    }
+
+    &_deliveries {
+      grid-column: 1 / 3;
+      grid-row: 4 / 6;
+    }
+  }
+}

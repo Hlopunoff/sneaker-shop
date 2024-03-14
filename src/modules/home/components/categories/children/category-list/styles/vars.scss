@@ -1,0 +1,6 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-home-category-list';
+$block: '.' + $name;
+
+$delivery-category-background-color: colors.color('background', 'base-10');

@@ -1,0 +1,16 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__title {
+  font-weight: 500;
+  letter-spacing: 0.2px;
+
+  @include bp.till(bp.$tablet) {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  @include bp.from(bp.$tablet) {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+}

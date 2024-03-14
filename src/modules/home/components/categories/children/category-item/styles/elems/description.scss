@@ -1,0 +1,18 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__description {
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  z-index: 10;
+
+  @include bp.till(bp.$tablet) {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 12px;
+    font-size: 16px;
+  }
+}
