@@ -1,0 +1,34 @@
+@use '@/assets/base/styles/bp';
+
+@import './styles/vars';
+
+@import './styles/mods/default';
+@import './styles/mods/error';
+@import './styles/mods/type_checkbox';
+
+#{$block} {
+  font-family: inherit;
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+  border-radius: 12px;
+  background-color: transparent;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+
+  &::placeholder {
+    color: currentColor;
+  }
+
+  @include bp.till(bp.$tablet) {
+    padding-top: $padding-y-mobile;
+    padding-bottom: $padding-y-mobile;
+  }
+
+  @include bp.from(bp.$tablet) {
+    padding-top: $padding-y-tablet;
+    padding-bottom: $padding-y-tablet;
+  }
+}

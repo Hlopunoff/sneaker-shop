@@ -1,0 +1,14 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-input';
+$block: '.' + $name;
+
+$padding-y-mobile: 12px;
+$padding-y-tablet: 16px;
+$padding-x: 24px;
+$border-color: colors.color('background', 'base-5');
+$color: colors.color('typography', 'base-7');
+$error-color: colors.color('typography', 'base-8');
+$error-border-color: $error-color;
+
+$type-checkbox-size: 14px;

@@ -1,0 +1,25 @@
+@use '@/assets/base/styles/bp';
+
+@import './styles/vars';
+
+@import './styles/elems/form';
+@import './styles/elems/title';
+@import './styles/elems/subtitle';
+@import './styles/elems/input';
+@import './styles/elems/button';
+@import './styles/elems/checkbox';
+@import './styles/elems/policy';
+
+#{$block} {
+  background: $background;
+  border-radius: 12px;
+  padding: 48px 0;
+
+  @include bp.till(bp.$tablet) {
+    margin-top: 80px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 140px;
+  }
+}

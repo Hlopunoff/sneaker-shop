@@ -1,0 +1,8 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-home-cta';
+$block: '.' + $name;
+
+$background: linear-gradient(244deg, #efefef 0%, #cb9a63 29.17%, #d76598 42.71%, #46527f 56.77%, #1e9190 70.83%, #4a5976 86.46%, #5f3f6b 100%);
+$form-color: colors.color('typography', 'base-7');
+$policy-color: colors.color('typography', 'base-5');
