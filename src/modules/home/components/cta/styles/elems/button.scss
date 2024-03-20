@@ -1,0 +1,11 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__button {
+  @include bp.till(bp.$tablet) {
+    margin-top: 12px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 16px;
+  }
+}

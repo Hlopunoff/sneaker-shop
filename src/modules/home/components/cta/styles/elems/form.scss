@@ -1,0 +1,14 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__form {
+  margin: 0 auto;
+  color: $form-color;
+
+  @include bp.till(bp.$tablet) {
+    width: 280px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    width: 420px;
+  }
+}

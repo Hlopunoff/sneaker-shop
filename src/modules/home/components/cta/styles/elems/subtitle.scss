@@ -1,0 +1,18 @@
+@import '@/assets/base/styles/bp';
+
+#{$block}__subtitle {
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  margin-top: 8px;
+
+  @include bp.till(bp.$tablet) {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  @include bp.from(bp.$tablet) {
+    font-size: 16px;
+    line-height: 1.1;
+  }
+}

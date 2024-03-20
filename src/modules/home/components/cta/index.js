@@ -1,0 +1,1 @@
+export { default as AppHomeCta } from './home-cta.vue'

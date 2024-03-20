@@ -5,6 +5,7 @@ import { AppHomeBrands } from '../brands'
 import { AppHomeProductSlider } from '../product-slider'
 import { AppHomeBanner } from '../banner'
 import { AppHomeCategories } from '../categories'
+import { AppHomeCta } from '../cta'
 
 import { promoSliderData } from '../../mocks/slider' 
 
@@ -16,6 +17,7 @@ export default {
     AppHomeProductSlider,
     AppHomeBanner,
     AppHomeCategories,
+    AppHomeCta,
   },
   setup() {
     const b = useBem('app-home-main')
