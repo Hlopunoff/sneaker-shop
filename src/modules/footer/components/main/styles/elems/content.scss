@@ -1,0 +1,17 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__content {
+  display: flex;
+  border-top: 1px solid $content-border-color;
+  border-bottom: 1px solid $content-border-color;
+
+  @include bp.till(bp.$tablet) {
+    padding: $content-padding-y-mobile 0;
+    flex-direction: column;
+  }
+
+  @include bp.from(bp.$tablet) {
+    padding: $content-padding-y-tablet 0;
+    column-gap: 20px;
+  }
+}

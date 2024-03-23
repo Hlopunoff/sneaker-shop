@@ -1,0 +1,19 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__description {
+  max-width: 287px;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.2px;
+  color: $description-color;
+
+  @include bp.till(bp.$tablet) {
+    margin-top: 16px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 12px;
+  }
+}

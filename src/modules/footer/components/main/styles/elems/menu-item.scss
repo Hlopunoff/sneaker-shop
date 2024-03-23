@@ -1,0 +1,13 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__menu-item {
+  & + & {
+    @include bp.till(bp.$tablet-small) {
+      margin-top: 20px;
+    }
+
+    @include bp.from(bp.$tablet-small) {
+      margin-top: 16px;
+    }
+  }
+}

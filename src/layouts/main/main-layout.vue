@@ -2,7 +2,7 @@
   <div :class="b()">
     <header-main :class="b('header')"/>
     <router-view/>
-    <footer>Footer</footer>
+    <app-footer-main :class="b('footer')"/>
   </div>
 </template>
 
