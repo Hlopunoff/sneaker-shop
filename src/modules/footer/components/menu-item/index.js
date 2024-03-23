@@ -1,0 +1,1 @@
+export { default as AppFooterMenuItem } from './menu-item.vue'

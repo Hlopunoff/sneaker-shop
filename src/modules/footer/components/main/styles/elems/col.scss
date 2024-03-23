@@ -1,0 +1,20 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__col {
+  & + & {
+    display: flex;
+
+    @include bp.till(bp.$tablet) {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid $content-border-color;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+
+    @include bp.from(bp.$tablet) {
+      margin-left: auto;
+      column-gap: 20px;
+    }
+  }
+}

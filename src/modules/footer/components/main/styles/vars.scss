@@ -1,0 +1,17 @@
+@use '@/assets/base/styles/common';
+@use '@/assets/base/styles/colors';
+
+$name: 'app-footer-main';
+$block: '.' + $name;
+
+$padding-x: common.$main-layout-padding-x;
+
+$content-padding-y-tablet: 32px;
+$content-padding-y-mobile: 24px;
+$content-border-color: colors.color('background', 'base-4');
+
+$description-color: colors.color('typography', 'base-1');
+$phone-color: $description-color;
+$mail-color: $phone-color;
+
+$social-size: 40px;

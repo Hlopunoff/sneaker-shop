@@ -1,0 +1,11 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__footer {
+  @include bp.till(bp.$tablet) {
+    margin-top: 80px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 140px;
+  }
+}

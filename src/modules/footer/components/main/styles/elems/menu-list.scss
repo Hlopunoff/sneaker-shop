@@ -1,0 +1,11 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__menu-list {
+  @include bp.till(bp.$desktop-small) {
+    width: max-content;
+  }
+
+  @include bp.from(bp.$desktop-small) {
+    width: 187px;
+  }
+}

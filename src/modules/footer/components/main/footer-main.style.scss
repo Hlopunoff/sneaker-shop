@@ -1,0 +1,16 @@
+@import './styles/vars';
+
+@import './styles/elems/content';
+@import './styles/elems/col';
+@import './styles/elems/logo';
+@import './styles/elems/description';
+@import './styles/elems/phone';
+@import './styles/elems/mail';
+@import './styles/elems/socials';
+@import './styles/elems/social';
+@import './styles/elems/menu-list';
+@import './styles/elems/menu-item';
+
+#{$block} {
+  padding: 0 $padding-x;
+}

@@ -1,0 +1,18 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__phone {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+  color: $phone-color;
+
+  @include bp.till(bp.$tablet) {
+    margin-top: 16px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 24px;
+  }
+}

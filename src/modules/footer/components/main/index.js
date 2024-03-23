@@ -1,0 +1,1 @@
+export { default as AppFooterMain } from './footer-main.vue'
