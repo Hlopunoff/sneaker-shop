@@ -1,0 +1,7 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-breadcrumbs';
+$block: '.' + $name;
+
+$item-color: colors.color('typography', 'base-2');
+$item-color-active: colors.color('typography', 'base');

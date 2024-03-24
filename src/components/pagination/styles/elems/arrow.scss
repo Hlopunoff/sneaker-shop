@@ -1,0 +1,8 @@
+#{$block}__arrow {
+
+  &_reversed {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}

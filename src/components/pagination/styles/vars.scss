@@ -1,0 +1,11 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-pagination';
+$block: '.' + $name;
+
+$item-size: 40px;
+$item-background-color: colors.color('typography', 'base-7');
+$item-border-color: colors.color('background', 'base-4');
+$item-color: colors.color('typography', 'base-2');
+$item-color-active: $item-background-color;
+$item-background-color-active: colors.color('background', 'base');

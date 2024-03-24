@@ -1,0 +1,13 @@
+@import './styles/vars';
+
+@import './styles/elems/arrow';
+@import './styles/elems/item';
+@import './styles/elems/items';
+
+#{$block} {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  column-gap: 8px;
+}

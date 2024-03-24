@@ -1,0 +1,26 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__list {
+  display: grid;
+  column-gap: 20px;
+
+  @include bp.till(bp.$tablet) {
+    margin-top: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 48px;
+  }
+
+  @include bp.between(bp.$desktop-small, bp.$desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include bp.from(bp.$desktop) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

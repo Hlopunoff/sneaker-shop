@@ -1,0 +1,1 @@
+export { default as AppArrowDoubleIcon } from './arrow-double.vue'

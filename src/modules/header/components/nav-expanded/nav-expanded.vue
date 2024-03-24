@@ -77,7 +77,7 @@
         </button>
       </li>
       <li :class="b('cta-item')">
-        <router-link to="/favorites">
+        <router-link to="/wishlist">
           <app-heart-icon :width="32" :height="32"/>
         </router-link>
       </li>

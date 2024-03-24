@@ -1,0 +1,1 @@
+export { default as AppFavoritesMain } from './favorites-main.vue'

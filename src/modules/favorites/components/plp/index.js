@@ -1,0 +1,1 @@
+export { default as AppFavoritesPlp } from './favorites-plp.vue'
