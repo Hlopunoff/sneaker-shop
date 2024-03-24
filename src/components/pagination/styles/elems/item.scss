@@ -1,0 +1,20 @@
+#{$block}__item {
+  width: $item-size;
+  height: $item-size;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+  color: $item-color;
+
+  background-color: $item-background-color;
+  border: 1px solid $item-border-color;
+  border-radius: 8px;
+
+  &_active {
+    background-color: $item-background-color-active;
+    color: $item-color-active;
+  }
+}

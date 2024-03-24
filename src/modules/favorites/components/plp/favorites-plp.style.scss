@@ -1,0 +1,17 @@
+@use '@/assets/base/styles/bp';
+
+@import './styles/vars';
+
+@import './styles/elems/title';
+@import './styles/elems/list';
+@import './styles/elems/pagination';
+
+#{$block} {
+  @include bp.till(bp.$tablet) {
+    margin-top: 32px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 80px;
+  }
+}

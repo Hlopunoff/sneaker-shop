@@ -1,0 +1,6 @@
+@use '@/assets/base/styles/common';
+
+$name: 'app-favorites-main';
+$block: '.' + $name;
+
+$padding-x: common.$main-layout-padding-x;

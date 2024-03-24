@@ -1,0 +1,13 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__pagination {
+  @include bp.till(bp.$tablet) {
+    margin-top: 16px;
+    max-width: 330px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 48px;
+    max-width: 520px;
+  }
+}
