@@ -4,6 +4,7 @@ import { MainLayout } from '@/layouts/main'
 import { AppMainPage } from '@/pages/main'
 import AppFavoritesPage from '@/pages/favorites.vue'
 import AppPlpPage from '@/pages/plp.vue'
+import AppNotFoundPage from '@/pages/404.vue'
 
 const routes = [
   {
@@ -13,9 +14,10 @@ const routes = [
     children: [
       { path: '', component: AppMainPage, name: 'Главная' },
       { path: 'wishlist', component: AppFavoritesPage, name: 'Избранное' },
-      { path: 'catalog/category/:category' , component: AppPlpPage, name: ':category'}
+      { path: 'catalog/category/:category', component: AppPlpPage, name: ':category' },
+      { path: '/:pathMatch(.*)*', component: AppNotFoundPage, },
     ]
-  }
+  },
 ]
 
 export const router = createRouter({
