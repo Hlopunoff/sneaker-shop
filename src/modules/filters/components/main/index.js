@@ -1,0 +1,1 @@
+export { default as AppFiltersMain } from './filters-main.vue'

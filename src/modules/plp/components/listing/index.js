@@ -1,0 +1,1 @@
+export { default as AppPlpListing } from './plp-listing.vue'
