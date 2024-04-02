@@ -1,0 +1,16 @@
+@use '@/assets/base/styles/bp';
+
+@import './styles/vars';
+
+#{$block} {
+  display: flex;
+  column-gap: 20px;
+
+  @include bp.till(bp.$tablet) {
+    max-width: 100%;
+  }
+
+  @include bp.from(bp.$tablet) {
+    max-width: 50%;
+  }
+}

@@ -1,0 +1,8 @@
+@import './styles/vars';
+
+@import './styles/elems/breadcrumbs';
+
+#{$block} {
+  padding: 0 $padding-x;
+  flex: 1;
+}

@@ -16,7 +16,8 @@
     "bem-cn-lite": "^4.1.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.15",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vuetify": "^3.5.13"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.17",
