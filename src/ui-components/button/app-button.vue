@@ -1,5 +1,5 @@
 <template>
-  <component :is="component" :href="href" :class="b({view, full})">{{ text }}</component>
+  <component :is="component" :to="href" :class="b({view, full})">{{ text }}</component>
 </template>
 
 <script src="./app-button.script.js"></script>

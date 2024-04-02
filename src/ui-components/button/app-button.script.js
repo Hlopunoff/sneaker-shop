@@ -1,3 +1,5 @@
+import { RouterLink } from 'vue-router'
+
 import { useBem } from '@/composables/use'
 
 import { computed } from 'vue'
@@ -6,6 +8,9 @@ import { VIEW } from './scripts/const'
 
 export default {
   name: 'app-button',
+  components: {
+    RouterLink,
+  },
   props: {
     text: {
       type: String,
@@ -29,7 +34,7 @@ export default {
   setup(props) {
     const b = useBem('app-button')
 
-    const component = computed(() => props.href ? 'a' : 'button')
+    const component = computed(() => props.href ? 'router-link' : 'button')
 
     return {
       b,
