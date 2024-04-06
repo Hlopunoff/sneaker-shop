@@ -1,0 +1,9 @@
+#{$block}__tabs {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+
+  border: 1px solid $tabs-border-color;
+  border-radius: 15px;
+}

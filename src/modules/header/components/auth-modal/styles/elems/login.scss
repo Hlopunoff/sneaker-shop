@@ -1,0 +1,18 @@
+#{$block}__login {
+  &-label {
+    font-size: 18px;
+    font-weight: 500;
+    color: $login-label-color;
+  }
+
+  &-input {
+    width: 100%;
+    padding: 16px 10px;
+    border: 1px solid $login-input-border-color;
+    border-radius: 12px;
+    color: $login-label-color;
+
+    outline-width: thin;
+    outline-color: currentColor;
+  }
+}

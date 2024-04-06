@@ -1,0 +1,27 @@
+#{$block}__button {
+  &-outer {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  &-input {
+    width: 100%;
+    border-radius: 12px;
+    padding: 15px 0;
+    background-color: $button-background-color;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    
+    &#{$block}__button-input[type=submit] {
+      color: $button-color;
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+}
