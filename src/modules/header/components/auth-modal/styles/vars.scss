@@ -1,0 +1,15 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-header-auth-modal';
+$block: '.' + $name;
+
+$inner-background-color: colors.color('background', 'base-7');
+$tabs-border-color: colors.color('background', 'base');
+$tab-color: colors.color('typography', 'base');
+$active-tab-color: colors.color('typography', 'base-7');
+
+$login-label-color: colors.color('typography', 'base');
+$login-input-border-color: colors.color('typography', 'base-3');
+
+$button-background-color: colors.color('background', 'base');
+$button-color: $inner-background-color;

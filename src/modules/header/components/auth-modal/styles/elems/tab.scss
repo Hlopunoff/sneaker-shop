@@ -1,0 +1,15 @@
+#{$block}__tab {
+  padding: 5px 15px;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  font-weight: 500;
+  color: $tab-color;
+  text-transform: uppercase;
+
+  &_active {
+    color: $active-tab-color;
+    background-color: $tabs-border-color;
+    border-radius: 12px;
+  }
+}

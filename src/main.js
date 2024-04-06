@@ -1,10 +1,13 @@
+import './index.css'
 import './assets/main.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import { createPinia } from 'pinia'
 
 import { router } from './router'
 
+import { plugin as formKitPlugin, defaultConfig as formKitDefaultConfig } from '@formkit/vue'
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import { VAutocomplete } from 'vuetify/components/VAutocomplete'
@@ -21,4 +24,4 @@ const vuetify = createVuetify({
   }
 })
 
-createApp(App).use(router).use(vuetify).mount('#app')
+createApp(App).use(router).use(createPinia()).use(vuetify).use(formKitPlugin, formKitDefaultConfig()).mount('#app')

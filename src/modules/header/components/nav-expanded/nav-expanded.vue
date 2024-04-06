@@ -81,6 +81,11 @@
           <app-heart-icon :width="32" :height="32"/>
         </router-link>
       </li>
+      <li :class="b('cta-item')" @click="onAuthModalToggle">
+        <router-link to="/profile">
+          <app-user-icon :width="32" :height="32"/>
+        </router-link>
+      </li>
       <li :class="b('cta-item')">
         <router-link to="/cart">
           <app-cart-icon :width="32" :height="32"/>
@@ -88,6 +93,7 @@
       </li>
     </ul>
   </nav>
+  <app-header-auth-modal :is-opened="isAuthModalOpened"/>
 </template>
 
 <script src="./nav-expanded.script.js"></script>
