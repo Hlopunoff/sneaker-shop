@@ -1,4 +1,5 @@
 import { computed, ref, toRefs } from 'vue'
+import { RouterLink } from 'vue-router'
 import { useBreakpoints } from '@vueuse/core'
 
 import { AppProductCardLabel } from './children/label'
@@ -17,6 +18,7 @@ export default {
     AppButton,
     AppHeartIcon,
     AppCartIcon,
+    RouterLink,
   },
   props: {
     product: {

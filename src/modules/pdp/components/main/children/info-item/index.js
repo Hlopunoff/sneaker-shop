@@ -1,0 +1,1 @@
+export { default as AppPdpInfoItem } from './info-item.vue'

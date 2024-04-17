@@ -1,0 +1,15 @@
+#{$block}__item {
+  border-radius: 12px;
+  cursor: pointer;
+
+  &_size {
+    padding: 4px 8px;
+    background-color: $size-item-background-color;
+  }
+
+  &_color {
+    width: $color-item-size;
+    height: $color-item-size;
+    padding: 2px;
+  }
+}

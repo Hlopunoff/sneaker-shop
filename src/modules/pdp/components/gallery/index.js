@@ -1,0 +1,1 @@
+export { default as AppPdpGallery } from './gallery.vue'

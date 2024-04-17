@@ -1,0 +1,11 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__info-list {
+  @include bp.till(bp.$tablet) {
+    margin-top: 32px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 48px;
+  }
+}

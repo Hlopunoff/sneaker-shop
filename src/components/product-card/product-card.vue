@@ -1,5 +1,5 @@
 <template>
-  <div :class="b()">
+  <router-link :class="b()" :to="`product/${product.id}`">
     <div :class="b('slider-wrap')">
       <ul :class="b('slider')" :style="{transform: `translateX(${-currentSlideIndex * 100}%)`}">
         <li v-for="(image, index) in product.images" :key="index" :class="b('slider-item')">
@@ -24,7 +24,7 @@
       </div>
     </div>
     <app-button v-if="!fromTablet" :class="b('cart-button')" text="В корзину"/>
-  </div>
+  </router-link>
 </template>
 
 <script src="./product-card.script.js"></script>

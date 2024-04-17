@@ -1,0 +1,29 @@
+@use '@/assets/base/styles/bp';
+
+@import './styles/vars';
+
+@import './styles/elems/gallery';
+@import './styles/elems/name';
+@import './styles/elems/section';
+@import './styles/elems/attributes';
+@import './styles/elems/button';
+@import './styles/elems/prices';
+@import './styles/elems/info-list';
+
+#{$block} {
+  margin-top: 32px;
+  display: grid;
+  column-gap: 20px;
+
+  padding: 0 $padding-x;
+
+  @include bp.till(bp.$tablet) {
+    row-gap: 20px;
+    grid-template-columns: 1fr;
+  }
+
+  @include bp.from(bp.$tablet) {
+    column-gap: 20px;
+    grid-template-columns: 2fr 1fr;
+  }
+}
