@@ -1,0 +1,9 @@
+@use '@/assets/base/styles/common';
+@use '@/assets/base/styles/colors';
+
+$name: 'app-pdp-main';
+$block: '.' + $name;
+
+$padding-x: common.$main-layout-padding-x;
+
+$name-color: colors.color('typography', 'base');

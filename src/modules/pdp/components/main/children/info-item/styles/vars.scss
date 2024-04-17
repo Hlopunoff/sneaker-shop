@@ -1,0 +1,8 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-pdp-info-item';
+$block: '.' + $name;
+
+$text-color: colors.color('typography', 'base');
+$row-text-color: $text-color;
+$row-title-color: colors.color('typography', 'base-2');

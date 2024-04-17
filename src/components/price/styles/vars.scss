@@ -1,0 +1,7 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-price';
+$block: '.' + $name;
+
+$view-old-color: colors.color('typography', 'base-2');
+$view-current-color: colors.color('typography', 'base-8');

@@ -1,0 +1,19 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__row-title {
+  font-weight: 400;
+  line-height: 1.4;
+  color: $row-title-color;
+
+  @include bp.till(bp.$tablet) {
+    font-size: 14px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    font-size: 16px;
+  }
+
+  @include bp.from(bp.$tablet-large) {
+    white-space: nowrap;
+  }
+}

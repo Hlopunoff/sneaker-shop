@@ -1,0 +1,1 @@
+export { default as AppPdpMain } from './main.vue'

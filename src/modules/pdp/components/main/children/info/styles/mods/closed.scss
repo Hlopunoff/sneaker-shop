@@ -1,0 +1,10 @@
+#{$block}_closed {
+  #{$block}__content {
+    max-height: 1000px;
+    padding-bottom: 24px;
+  }
+
+  #{$block}__icon {
+    transform: rotate(90deg);
+  }
+}

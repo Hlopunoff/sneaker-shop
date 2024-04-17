@@ -1,0 +1,19 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__row {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 10px;
+
+  @include bp.till(bp.$tablet) {
+    & + & {
+      margin-top: 16px;
+    }
+  }
+
+  @include bp.from(bp.$tablet) {
+    & + & {
+      margin-top: 12px;
+    }
+  }
+}

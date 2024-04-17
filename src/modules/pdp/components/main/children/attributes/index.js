@@ -1,0 +1,1 @@
+export { default as AppPdpAttributes } from './attributes.vue'
