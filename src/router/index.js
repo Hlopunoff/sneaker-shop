@@ -27,4 +27,10 @@ export const router = createRouter({
   strict: true,
   sensitive: true,
   history: createWebHistory(),
+  scrollBehavior: () => {
+    return {
+      top: 0,
+      behavior: 'smooth',
+    }
+  }
 })
