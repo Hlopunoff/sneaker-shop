@@ -1,5 +1,5 @@
 <template>
-  <router-link :class="b()" :to="`product/${product.id}`">
+  <router-link :class="b()" :to="`/product/${product.id}`">
     <div :class="b('slider-wrap')">
       <ul :class="b('slider')" :style="{transform: `translateX(${-currentSlideIndex * 100}%)`}">
         <li v-for="(image, index) in product.images" :key="index" :class="b('slider-item')">

@@ -1,0 +1,17 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__wrapper {
+  min-height: 100vh;
+  width: max-content;
+  background-color: $wrapper-background-color;
+  overflow-y: auto;
+
+  @include bp.till(bp.$mobile-large) {
+    width: 100%;
+    padding: $wrapper-padding-y-mobile $wrapper-padding-x-mobile;
+  }
+
+  @include bp.from(bp.$mobile-large) {
+    padding:  $wrapper-padding-y-tablet $wrapper-padding-x-tablet;
+  }
+}

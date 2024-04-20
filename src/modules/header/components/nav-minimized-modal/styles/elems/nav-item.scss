@@ -1,0 +1,14 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__nav-item {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 500;
+  color: $nav-item-color;
+  border-top: 1px solid $nav-item-border-color;
+
+  @include bp.from(bp.$tablet) {
+    margin: 0 $nav-item-margin-x-tablet;
+    padding: 0 $wrapper-padding-x-tablet;
+  }
+}
