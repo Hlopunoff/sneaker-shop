@@ -1,0 +1,14 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__redirect-button {
+  display: block;
+  margin: 0 auto;
+
+  @include bp.till(bp.$tablet) {
+    margin-top: 24px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 32px;
+  }
+}

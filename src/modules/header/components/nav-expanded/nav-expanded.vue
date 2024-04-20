@@ -86,10 +86,8 @@
           <app-user-icon :width="32" :height="32"/>
         </router-link>
       </li>
-      <li :class="b('cta-item')">
-        <router-link to="/cart">
+      <li :class="b('cta-item')" @click="onCartModalToggle">
           <app-cart-icon :width="32" :height="32"/>
-        </router-link>
       </li>
     </ul>
   </nav>

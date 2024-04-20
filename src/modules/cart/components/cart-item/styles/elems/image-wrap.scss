@@ -1,0 +1,10 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__image-wrap {
+  border-radius: 8px;
+  border: 1px solid $image-wrap-border-color;
+
+  @include bp.from(bp.$tablet) {
+    width: 120px;
+  }
+}

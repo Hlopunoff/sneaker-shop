@@ -3,6 +3,7 @@
     <header-main :class="b('header')"/>
     <router-view/>
     <app-footer-main :class="b('footer')"/>
+    <app-cart-main/>
   </div>
 </template>
 

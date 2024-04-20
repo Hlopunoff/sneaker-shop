@@ -1,0 +1,26 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__wrapper {
+  background-color: $wrapper-background-color;
+  border-radius: 12px;
+  width: min-content;
+
+  @include bp.till(bp.$tablet) {
+    padding: $wrapper-padding-mobile;
+  }
+
+  @include bp.from(bp.$tablet) {
+    padding: $wrapper-padding-tablet;
+  }
+
+  @include bp.between(bp.$tablet, bp.$desktop-small) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+  }
+
+  @include bp.from(bp.$desktop-small) {
+    display: flex;
+    column-gap: 24px;
+  }
+}

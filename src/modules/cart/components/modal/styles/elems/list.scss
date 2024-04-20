@@ -1,0 +1,15 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__list {
+  display: flex;
+
+  @include bp.till(bp.$tablet) {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+}

@@ -1,0 +1,18 @@
+@import './styles/vars';
+
+@import './styles/elems/wrapper';
+@import './styles/elems/image-empty-wrapper';
+@import './styles/elems/title';
+@import './styles/elems/subtitle';
+@import './styles/elems/redicrect-button';
+@import './styles/elems/close-btn';
+@import './styles/elems/list';
+@import './styles/elems/submit-button';
+
+#{$block} {
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.4);
+}

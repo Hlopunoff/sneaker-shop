@@ -1,0 +1,21 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-cart-item';
+$block: '.' + $name;
+
+$wrapper-background-color: colors.color('background', 'base-5');
+$wrapper-padding-tablet: 16px;
+$wrapper-padding-mobile: 10px;
+
+$image-wrap-border-color: colors.color('background', 'base-4');
+
+$name-color: colors.color('typography', 'base');
+$instock-color: $name-color;
+$control-background-color: colors.color('background', 'base-7');
+
+$control-padding-y: 6px;
+$control-padding-x: 16px;
+
+$attribute-color: colors.color('typography', 'base-2');
+
+$color-size: 20px;
