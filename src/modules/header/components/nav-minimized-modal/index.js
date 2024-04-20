@@ -1,0 +1,1 @@
+export { default as AppHeaderNavMinimizedModal } from './nav-minimized-modal.vue'

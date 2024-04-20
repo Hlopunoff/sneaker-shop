@@ -1,0 +1,19 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-header-nav-minimized-modal';
+$block: '.' + $name;
+
+$wrapper-background-color: colors.color('background', 'base-7');
+$wrapper-padding-y-tablet: 100px;
+$wrapper-padding-x-tablet: 60px;
+$wrapper-padding-y-mobile: 60px;
+$wrapper-padding-x-mobile: 20px;
+
+$nav-section-color: colors.color('typography', 'base');
+$nav-item-color: $nav-section-color;
+
+$nav-item-margin-x-tablet: -1 * $wrapper-padding-x-tablet;
+$nav-item-padding-left-tablet: $wrapper-padding-x-tablet;
+$nav-item-border-color: colors.color('background', 'base');
+
+$logout-button-color: colors.color('typography', 'base-8');
