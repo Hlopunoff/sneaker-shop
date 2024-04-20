@@ -1,0 +1,19 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__name {
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: $name-color;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  @include bp.till(bp.$tablet) {
+    font-size: 16px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    font-size: 18px;
+  }
+}

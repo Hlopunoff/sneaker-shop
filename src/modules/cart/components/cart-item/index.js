@@ -1,0 +1,1 @@
+export { default as AppCartItem } from './cart-item.vue'

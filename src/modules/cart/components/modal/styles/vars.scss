@@ -1,0 +1,18 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-cart-modal';
+$block: '.' + $name;
+
+$wrapper-padding-y-desktop: 100px;
+$wrapper-padding-x-desktop: 40px;
+$wrapper-padding-y-tablet: 40px;
+$wrapper-padding-x-tablet: 40px;
+$wrapper-padding-y-mobile: 30px;
+$wrapper-padding-x-mobile: 20px;
+$wrapper-background-color: colors.color('background', 'base-7');
+
+$image-wrap-empty-size-mobile: 212px;
+$image-wrap-empty-size-tablet: 360px;
+
+$title-color: colors.color('typography', 'base');
+$subtitle-color: $title-color;

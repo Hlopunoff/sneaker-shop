@@ -1,0 +1,11 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include bp.till(bp.$desktop-small) {
+    text-align: right;
+  }
+}

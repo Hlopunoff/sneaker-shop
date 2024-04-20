@@ -1,0 +1,23 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__wrapper {
+  position: relative;
+  height: 100%;
+  margin-left: auto;
+  background-color: $wrapper-background-color;
+  overflow-y: auto;
+
+  @include bp.till(bp.$tablet) {
+    padding: $wrapper-padding-y-mobile $wrapper-padding-x-mobile 80px $wrapper-padding-x-mobile;
+  }
+
+  @include bp.between(bp.$tablet, bp.$desktop-small) {
+    width: max-content;
+    padding: $wrapper-padding-y-tablet $wrapper-padding-x-tablet 80px $wrapper-padding-x-tablet;
+  }
+
+  @include bp.from(bp.$desktop-small) {
+    width: max-content;
+    padding: $wrapper-padding-y-desktop $wrapper-padding-x-desktop;
+  }
+}

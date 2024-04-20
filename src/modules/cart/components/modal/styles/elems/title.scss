@@ -1,0 +1,19 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__title {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: $title-color;
+
+  @include bp.till(bp.$tablet) {
+    margin-top: 32px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 64px;
+  }
+}
