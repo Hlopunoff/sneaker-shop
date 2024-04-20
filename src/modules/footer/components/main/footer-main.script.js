@@ -5,6 +5,8 @@ import { AppFooterMenuItem } from '../menu-item'
 
 import { useBem } from "@/composables/use"
 
+import { catalogItems, sectionSecondaryItems, sectionMainItems } from '../../mocks/footer-menu'
+
 export default {
   name: 'app-footer-main',
   components: {
@@ -17,6 +19,10 @@ export default {
 
     return {
       b,
+
+      catalogItems,
+      sectionSecondaryItems,
+      sectionMainItems,
     }
   }
 }

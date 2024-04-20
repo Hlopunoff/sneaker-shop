@@ -23,16 +23,13 @@
       </div>
       <div :class="b('col')">
         <app-footer-menu-list :class="b('menu-list')">
-          <app-footer-menu-item v-for="i in 4" :key="i" :class="b('menu-item')" path="/catalog/sneakers" text="Кроссовки"/>
+          <app-footer-menu-item v-for="(item, i) in catalogItems" :key="i" :class="b('menu-item')" v-bind="item"/>
         </app-footer-menu-list>
         <app-footer-menu-list :class="b('menu-list')">
-          <app-footer-menu-item v-for="i in 4" :key="i" :class="b('menu-item')" path="/catalog/sneakers" text="Кроссовки"/>
+          <app-footer-menu-item v-for="(item, i) in sectionSecondaryItems" :key="i" :class="b('menu-item')" v-bind="item"/>
         </app-footer-menu-list>
         <app-footer-menu-list :class="b('menu-list')">
-          <app-footer-menu-item v-for="i in 3" :key="i" :class="b('menu-item')" path="/catalog/sneakers" text="Кроссовки"/>
-        </app-footer-menu-list>
-        <app-footer-menu-list :class="b('menu-list')">
-          <app-footer-menu-item v-for="i in 2" :key="i" :class="b('menu-item')" path="/catalog/sneakers" text="Кроссовки"/>
+          <app-footer-menu-item v-for="(item, i) in sectionMainItems" :key="i" :class="b('menu-item')" v-bind="item"/>
         </app-footer-menu-list>
       </div>
     </div>
