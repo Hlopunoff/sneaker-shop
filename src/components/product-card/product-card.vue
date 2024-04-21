@@ -19,8 +19,8 @@
       <h4 :class="b('name')">{{ product.name }}</h4>
       <div :class="b('prices')">
         <span :class="b('price', {current: true})">{{ currentCurrencyFormatted }}</span>
-        <span :class="b('price', {old: true})">{{ oldCurrencyFormatted }}</span>
-        <span :class="b('discount')">-{{ product.discount }}%</span>
+        <span v-if="product.prices.old" :class="b('price', {old: true})">{{ oldCurrencyFormatted }}</span>
+        <span v-if="product.discount" :class="b('discount')">-{{ product.discount }}%</span>
       </div>
     </div>
     <app-button v-if="!fromTablet" :class="b('cart-button')" text="В корзину"/>

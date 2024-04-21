@@ -1,6 +1,7 @@
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useBreakpoints } from '@vueuse/core'
 
+import { useHomeMainStore } from '../../stores'
 import { AppProductCard } from '@/components/product-card'
 import { AppSliderArrowIcon } from '@/ui-components/icons'
 
@@ -19,11 +20,14 @@ export default {
   setup() {
     const b = useBem('app-home-product-slider')
     const bp = useBreakpoints(BREAKPOINTS)
+    
+    const homeMainStore = useHomeMainStore()
 
     const currentSlideIndex = ref(0)
 
     const fromTablet = computed(() => bp.TABLET.value)
     const sliderColumns = computed(() => fromTablet.value ? SLIDER_COLUMNS_DESKTOP : SLIDER_COLUMNS_MOBILE)
+    const slides = computed(() => homeMainStore.sliderContentFormatted)
 
 
     //TODO: Попробовать написать useSlider для выноса логики работы слайдеров
@@ -39,10 +43,14 @@ export default {
       currentSlideIndex.value -= sliderColumns.value
     }
 
+    onMounted(() => {
+      homeMainStore.fetchSliderContent()
+    })
+
     return {
       b,
 
-      slides: popularSliderData,
+      slides,
       prevSlide,
       nextSlide,
       currentSlideIndex,

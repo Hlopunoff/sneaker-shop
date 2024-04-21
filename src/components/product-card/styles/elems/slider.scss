@@ -1,3 +1,5 @@
+@use '@/assets/base/styles/bp';
+
 #{$block}__slider {
   display: flex;
   width: 100%;
@@ -10,4 +12,20 @@
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @include bp.till(bp.$mobile-large) {
+    height: 200px;
+  }
+
+  @include bp.between(bp.$mobile-large, bp.$desktop-small) {
+    height: 250px;
+  }
+
+  @include bp.between(bp.$desktop-small, bp.$desktop-large) {
+    height: 350px;
+  }
+
+   @include bp.from(bp.$desktop-large) {
+    height: 450px;
+   }
 }
