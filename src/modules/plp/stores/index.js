@@ -1,0 +1,1 @@
+export { usePlpMainStore } from './main'
