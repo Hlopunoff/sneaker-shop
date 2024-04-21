@@ -1,9 +1,11 @@
+import { computed, watch } from "vue"
+import { useRoute } from 'vue-router'
+
 import { useBem } from "@/composables/use"
+import { usePlpMainStore } from '../../stores'
 
 import { AppProductCard } from '@/components/product-card'
 import { AppFiltersMain } from '@/modules/filters/components/main'
-
-import { plpMockListing } from '../../mocks/plp'
 
 export default {
   name: 'app-plp-listing',
@@ -14,10 +16,19 @@ export default {
   props: {},
   setup() {
     const b = useBem('app-plp-listing')
+    const route = useRoute()
+    const mainPlpStore = usePlpMainStore()
+
+    const listing = computed(() => mainPlpStore.products)
+
+    watch(() => route.params, () => {
+      mainPlpStore.fetchProductsByCategory(route.params.category)
+    }, {immediate: true})
 
     return {
       b,
-      plpMockListing,
+      
+      listing,
     }
-  }
+  },
 }
