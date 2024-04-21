@@ -1,0 +1,1 @@
+export { usePdpMainStore } from './main'
