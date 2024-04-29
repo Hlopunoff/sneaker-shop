@@ -21,8 +21,8 @@ export default {
 
     const listing = computed(() => mainPlpStore.products)
 
-    watch(() => route.params, () => {
-      mainPlpStore.fetchProductsByCategory(route.params.category)
+    watch(() => route.params.category, (category) => {
+      mainPlpStore.fetchProductsByCategory(category)
     }, {immediate: true})
 
     return {

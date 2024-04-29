@@ -1,12 +1,12 @@
 import { RouterLink } from "vue-router"
-import { computed } from 'vue'
+import { computed } from "vue"
 
 import { useBem } from "@/composables/use"
-import { useAuthStore } from '../../stores'
 import { useCartStore } from '@/modules/cart/stores/main'
 
 import { AppSearchIcon, AppHeartIcon, AppCartIcon, AppUserIcon } from "@/ui-components/icons"
 import { AppHeaderAuthModal } from '../auth-modal'
+import { useAuthStore } from "../../stores"
 
 export default {
   name: 'app-nav-expanded',
@@ -20,16 +20,10 @@ export default {
   },
   setup() {
     const b = useBem('nav-expanded')
-    const authStore = useAuthStore()
     const cartStore = useCartStore()
+    const authStore = useAuthStore()
 
     const isAuthModalOpened = computed(() => authStore.isAuthModalOpened)
-
-    const onAuthModalToggle = () => {
-      if (!authStore.isAuthorized) {
-        authStore.toggleAuthModal()
-      }
-    }
 
     const onCartModalToggle = () => {
       cartStore.toggleModal()
@@ -38,9 +32,7 @@ export default {
     return {
       b,
       
-      onAuthModalToggle,
       isAuthModalOpened,
-      
       onCartModalToggle,
     }
   }

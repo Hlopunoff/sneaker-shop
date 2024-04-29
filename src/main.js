@@ -1,7 +1,7 @@
 import './index.css'
 import './assets/main.css'
 
-import { createApp } from 'vue'
+import { createApp, markRaw } from 'vue'
 import App from './App.vue'
 import { createPinia } from 'pinia'
 
@@ -15,6 +15,9 @@ import { VBreadcrumbs } from 'vuetify/components/VBreadcrumbs'
 import { VPagination } from 'vuetify/components/VPagination'
 import * as directives from 'vuetify/directives'
 
+import Toast from 'vue-toastification'
+import 'vue-toastification/dist/index.css'
+
 const vuetify = createVuetify({
   directives,
   aliases: {
@@ -24,4 +27,19 @@ const vuetify = createVuetify({
   }
 })
 
-createApp(App).use(router).use(createPinia()).use(vuetify).use(formKitPlugin, formKitDefaultConfig()).mount('#app')
+const piniaInstance = createPinia().use(({store}) => store.router = markRaw(router))
+
+createApp(App).use(router).use(piniaInstance).use(vuetify).use(Toast, {
+  position: "top-right",
+  timeout: 3000,
+  closeOnClick: true,
+  pauseOnFocusLoss: false,
+  pauseOnHover: false,
+  draggable: false,
+  draggablePercent: 0.6,
+  showCloseButtonOnHover: false,
+  hideProgressBar: true,
+  closeButton: false,
+  icon: true,
+  rtl: false
+}).use(formKitPlugin, formKitDefaultConfig()).mount('#app')
