@@ -42,8 +42,8 @@ export default {
       return Array.isArray(item.details) ? 'table' : 'row'
     }
 
-    watch(() => route.params, () => {
-      mainStore.fetchProduct(route.params.id)
+    watch(() => route.params.id, (id) => {
+      mainStore.fetchProduct(id)
     }, { immediate: true })
 
     return {

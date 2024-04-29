@@ -81,7 +81,7 @@
           <app-heart-icon :width="32" :height="32"/>
         </router-link>
       </li>
-      <li :class="b('cta-item')" @click="onAuthModalToggle">
+      <li :class="b('cta-item')">
         <router-link to="/profile">
           <app-user-icon :width="32" :height="32"/>
         </router-link>

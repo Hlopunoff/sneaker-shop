@@ -14,28 +14,32 @@
         type="form"
         :actions="false">
           <FormKit 
+          v-model="email"
           name="login" 
-          type="tel" 
-          label="Телефон" 
-          placeholder="+7 (___) ___-__-__"
+          type="email" 
+          label="Email" 
+          placeholder="Email"
           :label-class="b('login-label')"
           :input-class="b('login-input')"/>
           <FormKit 
+          v-model="password"
           name="password" 
           type="password" 
           label="Пароль"
+          placeholder="Пароль"
           :outer-class="b('pass-outer')"
           :label-class="b('pass-label')"
           :input-class="b('pass-input')"/>
           <FormKit
-          name="submit"
+          name="btn-submit"
           type="submit"
           :label="submitButtonLabel"
           :outer-class="b('button-outer')"
           :input-class="b('button-input')"
+          @click="onSubmit"
           />
         </FormKit>
-        <div :class="b('button-close')" @click="onModalClose">&#10060;</div>
+        <div :class="b('button-close')" @click="onModalClose($event)">&#10060;</div>
       </div>
     </section>
   </Teleport>
