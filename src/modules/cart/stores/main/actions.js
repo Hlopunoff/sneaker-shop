@@ -1,6 +1,13 @@
+import { doc, updateDoc, setDoc, getDoc, deleteField } from 'firebase/firestore'
 import { useMainStore } from '@/modules/core/stores/main'
+import { useToast } from 'vue-toastification'
+import { db } from '@/firebase'
+import { useAuthStore } from '@/modules/header/stores'
+
+const toast = useToast()
 
 export const actions = {
+  // Открытие/закрытие модалки
   toggleModal() {
     const mainStore = useMainStore()
 
@@ -11,5 +18,129 @@ export const actions = {
     } else {
       mainStore.enableScroll()
     }
+  },
+  // Добавление товара в корзину
+  async addToCart(productId) {
+    const authStore = useAuthStore()
+    const userId = authStore.user.uid
+    const productInternal = await this.fetchProductById(productId)
+
+    try {
+      if (this.items.has(productId)) {
+        const prevState = this.items.get(productId)
+        this.items.delete(productId)
+
+        await updateDoc(doc(db, 'users', userId), {
+          [`cart.${productId}.amount`]: prevState.amount + 1
+        })
+
+        this.items.set(productId, { ...productInternal, amount: prevState.amount + 1 })
+      
+      } else {
+        await setDoc(doc(db, 'users', userId), {
+          cart: {
+            [productId]: { ...productInternal, amount: 1 }
+          }
+        }, { merge: true })
+
+        this.items.set(productId, {...productInternal, amount: 1})
+        this.totalCount += 1
+      }
+
+      // Добавление в локал сторадж
+      this.updateLocalStorageCart()
+
+      toast.success('Товар успешно добавлен в корзину')
+    } catch (error) {
+      console.error(error.message)
+      toast.error(error.message)
+    }
+  },
+  // Уменьшение кол-ва товаров в корзине
+  async removeItemById(productId) {
+    const authStore = useAuthStore()
+    const userId = authStore.user.uid
+
+    try {
+      const productInternal = this.items.get(productId)
+      const productAmount = productInternal.amount
+
+      this.items.delete(productId)
+      
+      if (productAmount > 1) {
+        await updateDoc(doc(db, 'users', userId), {
+          [`cart.${productId}.amount`]: productAmount - 1
+        })
+
+        this.items.set(productId, { ...productInternal, amount: productAmount - 1 })
+        this.updateLocalStorageCart()
+
+        toast.success('Товар успешно удален из корзины')
+      } else {
+        this.deleteFromCart(productId)
+      }
+    }
+    catch (error) {
+      toast.error('Не удалось удалить товар из корзины')
+    }
+  },
+  // Удаление товара из корзины
+  async deleteFromCart(productId) {
+    const authStore = useAuthStore()
+    const userId = authStore.user.uid
+
+    try {
+      await updateDoc(doc(db, 'users', userId), {
+        [`cart.${productId}`]: deleteField()
+      })
+
+      this.totalCount -= 1
+      this.items.delete(productId)
+      this.updateLocalStorageCart()
+
+      toast.success('Товар удален из корзины')
+    } catch (error) {
+      toast.error(`Не удалось удалить товар из корзины: ${error.message}`)
+    }
+  },
+  // Получение товара из бд для корзины
+  async fetchProductById(productId) {
+    try {
+      const res = await getDoc(doc(db, 'products', productId))
+
+      if (!res.exists()) {
+        throw new Error('Не удалось добавить товар в корзину.\nТовар закончился')
+      }
+
+      return res.data()
+    } catch (error) {
+      toast.error(error.message)
+    }
+  },
+  // Конвертация товаров корзины в локал сторадж
+  setCartToLocalStorage(cart) {
+    const cartFormatted = {}
+    for (const [key, value] of cart.entries()) {
+      cartFormatted[key] = value
+    }
+
+    return cartFormatted
+  },
+  // Конвертация товаров из локал стораджа в корзину
+  getCartFromLocalStorage() {
+    const cart = JSON.parse(localStorage.getItem('user'))?.cart
+    const cartFormatted = new Map()
+
+    for (const key in cart) {
+      cartFormatted.set(key, cart[key])
+    }
+
+    return cartFormatted
+  },
+  // Обновление корзины в локал сторадже
+  updateLocalStorageCart() {
+    const userFromStorage = JSON.parse(localStorage.getItem('user'))
+      
+    localStorage.setItem('user', JSON.stringify({...userFromStorage, cart: this.setCartToLocalStorage(this.items) }))
   }
 }

@@ -1,9 +1,13 @@
-import { computed, ref, toRefs } from 'vue'
+import { computed, ref, toRefs, unref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useBreakpoints } from '@vueuse/core'
+import { useToast } from 'vue-toastification'
 
 import { AppProductCardLabel } from './children/label'
 import { SIZE as LABEL_SIZE } from './children/label/scripts/const'
+
+import { useAuthStore } from '@/modules/header/stores'
+import { useCartStore } from '@/modules/cart/stores/main'
 
 import { AppHeartIcon, AppCartIcon } from '@/ui-components/icons'
 import { AppButton } from '@/ui-components/button'
@@ -30,6 +34,10 @@ export default {
     //TODO Сделать Ui компонент button-with-icon-only для кнопок, содержащих только иконки и заменить везде в проекте
     const b = useBem('app-product-card')
     const bp = useBreakpoints(BREAKPOINTS)
+    const toast = useToast()
+
+    const authStore = useAuthStore()
+    const cartStore = useCartStore()
 
     const { product } = toRefs(props)
 
@@ -38,9 +46,9 @@ export default {
     const fromTablet = computed(() => bp.TABLET.value)
 
     const labelSize = computed(() => fromTablet.value ? LABEL_SIZE.M : LABEL_SIZE.S)
-    const currentCurrencyFormatted = computed(() => formatNumber(product.value.prices.current, { showCurrency: true }))
-    const oldCurrencyFormatted = computed(() => formatNumber(product.value.prices.old, { showCurrency: true }))
-    const isAddedToWishlist = computed(() => product.value.actions.isFavorite)
+    const currentCurrencyFormatted = computed(() => formatNumber(unref(product).prices.current, { showCurrency: true }))
+    const oldCurrencyFormatted = computed(() => formatNumber(unref(product).prices.old, { showCurrency: true }))
+    const isAddedToWishlist = computed(() => unref(product).actions.isFavorite)
 
     const onSliderDotClick = (index) => {
       currentSlideIndex.value = index
@@ -48,6 +56,15 @@ export default {
 
     const addToFavorites = () => {
       
+    }
+
+    const addToCart = () => {
+      if (!authStore.isLoggedIn) {
+        toast.error('У вас должен быть аккаунт для этой операции')
+        return
+      }
+      
+      cartStore.addToCart(unref(product).id)
     }
 
     return {
@@ -62,7 +79,9 @@ export default {
 
       currentCurrencyFormatted,
       oldCurrencyFormatted,
-      isAddedToWishlist
+      isAddedToWishlist,
+
+      addToCart,
     }
   }
 }

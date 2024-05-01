@@ -29,11 +29,15 @@ export default {
       cartStore.toggleModal()
     }
 
+    const totalCartAmount = computed(() => cartStore.totalCount)
+
     return {
       b,
       
       isAuthModalOpened,
       onCartModalToggle,
+
+      totalCartAmount,
     }
   }
 }

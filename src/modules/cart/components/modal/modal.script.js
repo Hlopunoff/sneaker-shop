@@ -1,4 +1,5 @@
-import { computed, ref } from 'vue'
+import { computed, unref } from 'vue'
+import { useRouter } from 'vue-router'
 
 import { useBem } from "@/composables/use"
 import { AppButton } from '@/ui-components/button'
@@ -6,8 +7,6 @@ import { AppButton } from '@/ui-components/button'
 import { AppCartItem } from '../cart-item'
 
 import { useCartStore } from '../../stores/main'
-
-import { cartItem } from '../../mocks/cart-item'
 
 export default {
   name: 'app-cart-modal',
@@ -18,17 +17,25 @@ export default {
   props: {},
   setup() {
     const b = useBem('app-cart-modal')
+    const router = useRouter()
     const cartStore = useCartStore()
 
     const isModalOpened = computed(() => cartStore.isModalOpened)
 
-    const isCartEmpty = ref(false)
+    const cartItems = computed(() => cartStore.itemsFormatted)
+    const isCartEmpty = computed(() => unref(cartItems).length <= 0)
 
     const onOverlayClick = () => {
       cartStore.toggleModal()
     }
 
     const onCloseButtonClick = () => {
+      cartStore.toggleModal()
+    }
+
+    const redirectToCatalog = () => {
+      router.push('/catalog/category/running')
+
       cartStore.toggleModal()
     }
 
@@ -40,7 +47,9 @@ export default {
 
       onOverlayClick,
       onCloseButtonClick,
-      cartItem,
+      redirectToCatalog,
+
+      cartItems,
     }
   }
 }

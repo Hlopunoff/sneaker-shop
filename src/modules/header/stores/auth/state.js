@@ -2,6 +2,6 @@ export const state = () => ({
   isAuthorized: false,
   isAuthModalOpened: false,
   activeTab: 'registration',
-  user: {},
-  isLoggedIn: false,
+  user: JSON.parse(localStorage.getItem('user')) || {},
+  isLoggedIn: !!localStorage.getItem('user'),
 })

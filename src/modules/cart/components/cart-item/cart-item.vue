@@ -12,16 +12,16 @@
         <span v-else :class="b('instock', {out: true})">Товар закончился</span>
       </div>
       <div :class="b('control')">
-        <button :class="b('action', {decrement: true})">—</button>
+        <button :class="b('action', {decrement: true})" @click="decrement">—</button>
         <span :class="b('amount')">{{ amount }}</span>
-        <button :class="b('action', {increment: true})">+</button>
+        <button :class="b('action', {increment: true})" @click="increment">+</button>
       </div>
       <div :class="b('cta')">
         <div :class="b('prices')">
           <app-price :class="b('price', {current: true})" :value="currentPrice"/>
           <app-price :class="b('price', {old: true})" :view="PRICE_VIEW.OLD" :value="oldPrice"/>
         </div>
-        <app-button :class="b('delete-button')" :view="BUTTON_VIEW.THIRD" text="Удалить"/>
+        <app-button :class="b('delete-button')" :view="BUTTON_VIEW.THIRD" text="Удалить" @click="removeItem"/>
       </div>
     </div>
   </div>
