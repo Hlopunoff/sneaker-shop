@@ -8,6 +8,7 @@ import { SIZE as LABEL_SIZE } from './children/label/scripts/const'
 
 import { useAuthStore } from '@/modules/header/stores'
 import { useCartStore } from '@/modules/cart/stores/main'
+import { useFavoritesStore } from '@/modules/favorites/stores'
 
 import { AppHeartIcon, AppCartIcon } from '@/ui-components/icons'
 import { AppButton } from '@/ui-components/button'
@@ -38,6 +39,7 @@ export default {
 
     const authStore = useAuthStore()
     const cartStore = useCartStore()
+    const favoritesStore = useFavoritesStore()
 
     const { product } = toRefs(props)
 
@@ -48,14 +50,10 @@ export default {
     const labelSize = computed(() => fromTablet.value ? LABEL_SIZE.M : LABEL_SIZE.S)
     const currentCurrencyFormatted = computed(() => formatNumber(unref(product).prices.current, { showCurrency: true }))
     const oldCurrencyFormatted = computed(() => formatNumber(unref(product).prices.old, { showCurrency: true }))
-    const isAddedToWishlist = computed(() => unref(product).actions.isFavorite)
+    const isAddedToWishlist = computed(() => favoritesStore.products.has(unref(product).id))
 
     const onSliderDotClick = (index) => {
       currentSlideIndex.value = index
-    }
-
-    const addToFavorites = () => {
-      
     }
 
     const addToCart = () => {
@@ -67,6 +65,15 @@ export default {
       cartStore.addToCart(unref(product).id)
     }
 
+    const toggleWishlist = () => {
+      if (!authStore.isLoggedIn) {
+        toast.error('У вас должен быть аккаунт для этой операции')
+        return
+      }
+
+      favoritesStore.toggleWishList(unref(product).id)
+    }
+
     return {
       b,
 
@@ -75,13 +82,13 @@ export default {
 
       currentSlideIndex,
       onSliderDotClick,
-      addToFavorites,
 
       currentCurrencyFormatted,
       oldCurrencyFormatted,
       isAddedToWishlist,
 
       addToCart,
+      toggleWishlist,
     }
   }
 }
