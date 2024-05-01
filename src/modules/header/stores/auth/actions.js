@@ -30,7 +30,7 @@ export const actions = {
         if (localStorage.getItem('user')) {
           //todo нотификация о том, что такой пользователь есть
         } else {
-          localStorage.setItem('user', authInstance.currentUser)
+          localStorage.setItem('user', JSON.stringify(authInstance.currentUser))
         }
 
         this.isLoggedIn = true
@@ -55,7 +55,7 @@ export const actions = {
         if (localStorage.getItem('user')) {
           //todo нотификация о том, что уже авторизован
         } else {
-          localStorage.setItem('user', authInstance.currentUser)
+          localStorage.setItem('user', JSON.stringify(authInstance.currentUser))
         }
 
         this.isLoggedIn = true

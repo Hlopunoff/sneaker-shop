@@ -7,12 +7,12 @@
         </div>
         <h3 :class="b('title')">ваша корзина пуста</h3>
         <span :class="b('subtitle')">Выберите нужный вам товар и добавьте его в корзину.</span>
-        <app-button :class="b('redirect-button')" text="К покупкам"/>
+        <app-button :class="b('redirect-button')" text="К покупкам" @click="redirectToCatalog"/>
       </div>
       <div v-else :class="b('wrapper')">
         <ul :class="b('list')">
           <app-cart-item
-          v-for="item in [cartItem, cartItem, cartItem]" 
+          v-for="item in cartItems" 
           :key="item.id" 
           :class="b('item')"
           v-bind="item"/>

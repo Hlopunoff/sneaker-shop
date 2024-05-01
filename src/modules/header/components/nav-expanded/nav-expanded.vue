@@ -88,6 +88,7 @@
       </li>
       <li :class="b('cta-item')" @click="onCartModalToggle">
           <app-cart-icon :width="32" :height="32"/>
+          <div v-if="totalCartAmount" :class="b('badge')">{{ totalCartAmount }}</div>
       </li>
     </ul>
   </nav>
