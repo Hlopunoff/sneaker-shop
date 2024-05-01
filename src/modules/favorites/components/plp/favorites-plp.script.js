@@ -1,10 +1,11 @@
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { AppProductCard } from '@/components/product-card'
 import { AppPagination } from '@/components/pagination'
 
 import { useBem } from "@/composables/use"
 
-import { wishlistMockListing } from '../../mocks/plp'
+import { useFavoritesStore } from '../../stores'
 
 export default {
   name: 'app-favorites-plp',
@@ -15,11 +16,14 @@ export default {
   },
   setup() {
     const b = useBem('app-favorites-plp')
+    const favoritesStore = useFavoritesStore()
+
+    const items = computed(() => favoritesStore.productsFormatted)
 
     return {
       b,
 
-      wishlistMockListing,
+      items,
     }
   }
 }

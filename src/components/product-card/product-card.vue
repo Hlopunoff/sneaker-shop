@@ -8,7 +8,7 @@
       </ul>
       <app-product-card-label :class="b('label')" :size="labelSize" v-bind="product.badge"/>
       <div :class="b('cta')">
-        <app-heart-icon :class="b('heart-icon', {active: isAddedToWishlist})" :width="32" :height="32" @click="addToFavorites"/>
+        <app-heart-icon :class="b('heart-icon', {active: isAddedToWishlist})" :width="32" :height="32" @click.prevent="toggleWishlist"/>
         <app-cart-icon v-if="fromTablet" :width="32" :height="32" @click.prevent="addToCart"/>
       </div>
       <ul :class="b('dots')">
