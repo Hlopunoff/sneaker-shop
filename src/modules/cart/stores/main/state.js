@@ -12,6 +12,7 @@ export const state = () => {
 
   return {
     isModalOpened: false,
+    isCartPending: false,
     totalCount: getCartFromLocalStorage()?.size ?? 0,
     items: getCartFromLocalStorage() ?? new Map(),
   }

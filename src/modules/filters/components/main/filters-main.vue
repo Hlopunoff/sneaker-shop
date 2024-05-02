@@ -3,18 +3,21 @@
     <app-filters-autocomplete
       label="Размер"
       variant="underlined"
-      :items="[37, 38, 39, 40, 44]"
+      :items="filters.sizes"
       :flat="true"
+      v-model="sizeFilter"
     />
     <app-filters-autocomplete
       label="Бренд"
       variant="underlined"
-      :items="[37, 38, 39, 40, 44]"
+      :items="filters.brands"
+      v-model="brandFilter"
     />
     <app-filters-autocomplete
       label="Цвет"
       variant="underlined"
-      :items="[37, 38, 39, 40, 44]"
+      :items="filters.colors"
+      v-model="colorFilter"
     />
   </section>
 </template>

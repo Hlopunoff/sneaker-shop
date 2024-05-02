@@ -3,7 +3,12 @@
     <h2 :class="b('title')">Кроссовки</h2>
     <app-filters-main :class="b('filters')"/>
     <div :class="b('list')">
-      <app-product-card v-for="item in listing" :key="item.id" :class="b('item')" :product="item"/>
+      <div v-if="isListingPending">
+        Loading...
+      </div>
+      <template v-else>
+        <app-product-card v-for="item in listing" :key="item.id" :class="b('item')" :product="item"/>
+      </template>
     </div>
     <app-pagination :class="b('pagination')" :length="4"/>
   </section>
