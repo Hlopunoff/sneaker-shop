@@ -1,4 +1,4 @@
-import { computed, watch } from 'vue'
+import { computed, watch, unref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useBreakpoints } from '@vueuse/core'
 
@@ -14,6 +14,8 @@ import { AppPdpInfoItem } from "./children/info-item"
 import { AppHomeProductSlider } from '@/modules/home/components/product-slider'
 
 import { usePdpMainStore } from '../../stores'
+import { useCartStore } from '@/modules/cart/stores/main'
+import { useAuthStore } from '@/modules/header/stores'
 
 import { BREAKPOINTS } from '@/constants'
 
@@ -32,14 +34,24 @@ export default {
     const bp = useBreakpoints(BREAKPOINTS)
     const b = useBem('app-pdp-main')
     const route = useRoute()
+
     const mainStore = usePdpMainStore()
+    const cartStore = useCartStore()
+    const authStore = useAuthStore()
 
     const galleryView = computed(() => bp.TABLET_SMALL.value ? 'expanded' : 'narrow')
 
     const product = computed(() => mainStore.productFormatted)
+    const isCartButtonDisabled = computed(() => !authStore.isLoggedIn || cartStore.isCartPending)
 
     const getInfoItemView = (item) => {
       return Array.isArray(item.details) ? 'table' : 'row'
+    }
+
+    const addToCart = () => {
+      if (!authStore.isLoggedIn) return
+
+      cartStore.addToCart(unref(product).id)
     }
 
     watch(() => route.params.id, (id) => {
@@ -52,6 +64,9 @@ export default {
       getInfoItemView,
       galleryView,
       product,
+
+      addToCart,
+      isCartButtonDisabled,
     }
   }
 }

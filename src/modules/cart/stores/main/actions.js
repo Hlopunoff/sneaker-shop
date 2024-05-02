@@ -26,6 +26,7 @@ export const actions = {
     const productInternal = await this.fetchProductById(productId)
 
     try {
+      this.isCartPending = true
       if (this.items.has(productId)) {
         const prevState = this.items.get(productId)
         this.items.delete(productId)
@@ -55,6 +56,9 @@ export const actions = {
       console.error(error.message)
       toast.error(error.message)
     }
+    finally {
+      this.isCartPending = false
+    }
   },
   // Уменьшение кол-ва товаров в корзине
   async removeItemById(productId) {
@@ -62,6 +66,7 @@ export const actions = {
     const userId = authStore.user.uid
 
     try {
+      this.isCartPending = true
       const productInternal = this.items.get(productId)
       const productAmount = productInternal.amount
 
@@ -82,6 +87,9 @@ export const actions = {
     }
     catch (error) {
       toast.error('Не удалось удалить товар из корзины')
+    }
+    finally {
+      this.isCartPending = false
     }
   },
   // Удаление товара из корзины
