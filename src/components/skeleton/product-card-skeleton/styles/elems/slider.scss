@@ -1,0 +1,26 @@
+@use '@/assets/base/styles/animation';
+@use '@/assets/base/styles/bp';
+
+#{$block}__slider {
+  width: 100%;
+  border-radius: 12px;
+  background-color: $background-color;
+
+  @include animation.pulse;
+
+  @include bp.till(bp.$mobile-large) {
+    height: 200px;
+  }
+
+  @include bp.between(bp.$mobile-large, bp.$desktop-small) {
+    height: 250px;
+  }
+
+  @include bp.between(bp.$desktop-small, bp.$desktop-large) {
+    height: 350px;
+  }
+
+  @include bp.from(bp.$desktop-large) {
+  height: 450px;
+  }
+}

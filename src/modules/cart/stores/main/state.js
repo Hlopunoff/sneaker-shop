@@ -15,5 +15,9 @@ export const state = () => {
     isCartPending: false,
     totalCount: getCartFromLocalStorage()?.size ?? 0,
     items: getCartFromLocalStorage() ?? new Map(),
+    itemConfiguration: {
+      size: '',
+      color: '',
+    },
   }
 }

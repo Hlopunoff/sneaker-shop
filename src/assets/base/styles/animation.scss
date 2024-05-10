@@ -1,0 +1,23 @@
+@use './colors';
+
+$duration: 1500ms;
+$delay: 0.1s;
+$timing-function: ease-in-out;
+$iteration-count: infinite;
+
+@keyframes pulse {
+  0% {
+    background-color: colors.color('background', 'base-4');
+  }
+  50% {
+    background-color: colors.color('background', 'base-3');
+  }
+}
+
+@mixin pulse {
+  animation-name: pulse;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: $timing-function;
+  animation-iteration-count: $iteration-count;
+}

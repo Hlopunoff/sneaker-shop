@@ -1,0 +1,6 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-product-card-skeleton';
+$block: '.' + $name;
+
+$background-color: colors.color('background', 'base-4');

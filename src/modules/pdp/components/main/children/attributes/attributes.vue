@@ -3,10 +3,11 @@
     <h5 :class="b('title')">{{ title }}</h5>
     <ul :class="b('list')">
       <li 
-      v-for="(attr, index) in values" 
+      v-for="(attr, index) in values"
       :key="index" 
       :class="b('item', itemMods)" 
-      :style="{backgroundColor: attr.color}">{{ type === 'size' ? attr.value : null }}</li>
+      :style="{backgroundColor: attr.color}"
+      @click="onAttrClick(attr)">{{ type === 'size' ? attr : null }}</li>
     </ul>
   </div>
 </template>
