@@ -1,0 +1,10 @@
+@import './styles/vars';
+
+@import './styles/elems/slider';
+@import './styles/elems/name';
+@import './styles/elems/prices';
+@import './styles/elems/price';
+
+#{$block} {
+  width: 100%;
+}

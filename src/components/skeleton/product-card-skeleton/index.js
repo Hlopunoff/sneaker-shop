@@ -1,0 +1,1 @@
+export { default as AppProductCardSkeleton } from './product-card-skeleton.vue'

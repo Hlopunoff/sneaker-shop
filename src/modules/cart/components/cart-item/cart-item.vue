@@ -8,8 +8,6 @@
         <h4 :class="b('name')">{{ name }}</h4>
         <span :class="b('attribute')">Размер {{ size }}</span>
         <span :class="b('attribute')">Цвет <div :class="b('color')" :style="{backgroundColor: color}"></div></span>
-        <span v-if="inStock" :class="b('instock')">В наличии {{ inStock }} шт.</span>
-        <span v-else :class="b('instock', {out: true})">Товар закончился</span>
       </div>
       <div :class="b('control')">
         <button :class="b('action', {decrement: true})" @click="decrement">—</button>
@@ -19,7 +17,7 @@
       <div :class="b('cta')">
         <div :class="b('prices')">
           <app-price :class="b('price', {current: true})" :value="currentPrice"/>
-          <app-price :class="b('price', {old: true})" :view="PRICE_VIEW.OLD" :value="oldPrice"/>
+          <app-price v-if="oldPrice" :class="b('price', {old: true})" :view="PRICE_VIEW.OLD" :value="oldPrice"/>
         </div>
         <app-button :class="b('delete-button')" :view="BUTTON_VIEW.THIRD" text="Удалить" @click="removeItem"/>
       </div>

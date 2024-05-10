@@ -26,12 +26,12 @@ export default {
       default: '',
     },
     size: {
-      type: String,
-      default: '',
+      type: Number,
+      required: true,
     },
     color: {
-      type: String,
-      default: '',
+      type: Object,
+      required: true,
     },
     inStock: {
       type: Number,

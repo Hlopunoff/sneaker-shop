@@ -8,6 +8,7 @@
   }
 
   &_color {
+    border: 2px solid $item-border-color;
     width: $color-item-size;
     height: $color-item-size;
     padding: 2px;

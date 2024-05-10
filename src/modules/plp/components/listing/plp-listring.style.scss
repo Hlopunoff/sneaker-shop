@@ -6,6 +6,8 @@
 @import './styles/elems/title';
 @import './styles/elems/filters';
 @import './styles/elems/pagination';
+@import './styles/elems/no-products';
+@import './styles/elems/reset-button';
 
 #{$block} {
   @include bp.till(bp.$tablet) {
