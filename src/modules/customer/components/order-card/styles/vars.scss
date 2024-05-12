@@ -1,0 +1,6 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-customer-order-card';
+$block: '.' + $name;
+
+$id-color: colors.color('typography', 'base');

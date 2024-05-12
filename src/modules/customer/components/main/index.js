@@ -1,0 +1,1 @@
+export { default as AppCustomerMain } from './main.vue'

@@ -1,0 +1,9 @@
+@import './styles/vars';
+
+@import './styles/elems/title';
+@import './styles/elems/orders';
+
+#{$block} {
+  padding: 0 $padding-x;
+  flex: 1;
+}
