@@ -1,0 +1,1 @@
+export { default as AppCustomerOrders } from './orders.vue'

@@ -6,6 +6,8 @@ import AppFavoritesPage from '@/pages/favorites.vue'
 import AppPlpPage from '@/pages/plp.vue'
 import AppPdpPage from '@/pages/pdp.vue'
 import AppNotFoundPage from '@/pages/404.vue'
+import AppProfilePage from '@/pages/profile.vue'
+
 import { getAuth } from 'firebase/auth'
 
 import { useAuthStore } from '@/modules/header/stores'
@@ -34,7 +36,13 @@ const routes = [
       },
       { 
         path: 'product/:id', 
-        component: AppPdpPage },
+        component: AppPdpPage
+      },
+      {
+        path: 'profile',
+        component: AppProfilePage,
+        meta: { requiresAuth: true }
+      },
       { 
         path: '/:pathMatch(.*)*', 
         component: AppNotFoundPage, 

@@ -1,0 +1,20 @@
+@use '@/assets/base/styles/with';
+
+@import './styles/vars';
+
+@import './styles/elems/id';
+@import './styles/elems/images';
+@import './styles/elems/image-wrap';
+
+#{$block} {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  transition: box-shadow 0.3s ease;
+
+  @include with.hover {
+    &:hover {
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+  }
+}

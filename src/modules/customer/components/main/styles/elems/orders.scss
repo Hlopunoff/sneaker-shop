@@ -1,0 +1,11 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__orders {
+  @include bp.till(bp.$tablet) {
+    margin-top: 20px;
+  }
+
+  @include bp.from(bp.$tablet) {
+    margin-top: 40px;
+  }
+}

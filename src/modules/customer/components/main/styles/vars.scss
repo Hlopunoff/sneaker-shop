@@ -1,0 +1,9 @@
+@use '@/assets/base/styles/common';
+@use '@/assets/base/styles/colors';
+
+$name: 'app-customer-main';
+$block: '.' + $name;
+
+$padding-x: common.$main-layout-padding-x;
+
+$title-color: colors.color('background', 'base');
