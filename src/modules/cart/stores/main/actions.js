@@ -2,8 +2,10 @@ import { doc, updateDoc, setDoc, getDoc, deleteField } from 'firebase/firestore'
 import { useMainStore } from '@/modules/core/stores/main'
 import { useToast } from 'vue-toastification'
 import { db } from '@/firebase'
+import { v4 as uuidv4 } from 'uuid'
 
 import { useAuthStore } from '@/modules/header/stores'
+import { useOrdersStore } from '@/modules/customer/stores'
 
 const toast = useToast()
 
@@ -170,6 +172,65 @@ export const actions = {
   selectItemConfig(param, value) {
     this.itemConfiguration[param] = value
   },
+  async createOrder() {
+    const authStore = useAuthStore()
+    const ordersStore = useOrdersStore()
+
+    const userId = authStore.user.uid
+    try {
+      if (!this.items.size) {
+        throw new Error('Невозможно создать заказ! Корзина пуста.')
+      }
+
+      const userData = await getDoc(doc(db, 'users', userId))
+
+      const orderId = uuidv4()
+      const order = {
+        id: orderId,
+        orderTotal: 0,
+        deliveryDate: Date.now(),
+        items: []
+      }
+      let orderTotal = 0
+
+      for (const [key, value] of Object.entries(userData.data().cart)) {
+        order.items.push({ id: key, ...value })
+        
+        orderTotal += Number(value.prices.current) * value.amount
+      }
+
+      order.orderTotal = orderTotal
+
+      await setDoc(doc(db, 'users', userId), {
+        orders: {
+          [orderId]: order
+        }
+      }, { merge: true })
+
+      this.clearCart()
+      ordersStore.setOrder(order)
+
+      toast.success('Заказ успешно создан')
+      
+    } catch(error) {
+      toast.error(error.message)
+    }
+  },
+  async clearCart() {
+    const authStore = useAuthStore()
+    const userId = authStore.user.uid
+    try {
+      await updateDoc(doc(db, 'users', userId), {
+        cart: deleteField()
+      })
+
+      this.items = new Map()
+      this.updateLocalStorageCart()
+      this.totalCount = 0
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
   // Ресет выбранных параметров продукта
   // resetSelectedProductConfiguration() {
   //   for (const key in this.itemConfiguration) {

@@ -1,7 +1,7 @@
 <template>
   <div :class="b()">
     <app-customer-order-card 
-      v-for="(order) in ordersInternal" 
+      v-for="(order) in orders" 
       :key="order.orderId"
       :class="b('order')"
       v-bind="order"/>

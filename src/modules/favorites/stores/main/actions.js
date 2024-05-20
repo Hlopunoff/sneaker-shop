@@ -55,5 +55,29 @@ export const actions = {
     }
 
     return wishlistInternal
+  },
+  async fetchWishlist() {
+    const authStore = useAuthStore()
+    const userId = authStore.user.uid
+    try {
+      this.isPending = true
+
+      const res = await getDoc(doc(db, 'users', userId))
+
+      if (!res.exists()) {
+        throw new Error('Пользователь не найден')
+      }
+      
+      for (const key in res.data().wishlist) {
+        this.products.set(key, res.data().wishlist?.[key])
+      }
+
+      this.updateLocalStorage()
+    } catch (error) {
+      toast.error(error.message)
+    }
+    finally {
+      this.isPending = false
+    }
   }
 }

@@ -14,7 +14,6 @@
         <app-button :class="b('reset-button')" @click="onResetButtonClick" text="Сбросить фильтры"/>
       </div>
     </div>
-    <app-pagination v-if="listing.length" :class="b('pagination')" :length="4"/>
   </section>
 </template>
 

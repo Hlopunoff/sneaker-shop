@@ -12,7 +12,7 @@
           </router-link>
           <router-link 
           :class="b('nav-item')" 
-          to="/profile" 
+          to="/profile/orders" 
           @click="onNavItemClick">Профиль</router-link>
           <span 
           :class="b('nav-item')" 
@@ -49,7 +49,7 @@
           to="/catalog/category/trainers"
           @click="onNavItemClick">Кроссовки</router-link>
         </nav>
-        <app-button v-if="true" :class="b('logout-button')" text="Выйти из профиля" @click="onNavItemClick"/>
+        <app-button v-if="isLoggedIn" :class="b('logout-button')" text="Выйти из профиля" @click="onSignOutClick"/>
         <button :class="b('button-close')" @click="closeMenu">&#10060;</button>
       </div>
     </div>

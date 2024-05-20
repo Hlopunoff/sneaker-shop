@@ -59,7 +59,7 @@ export const sectionMainItems = [
   },
   {
     text: 'Профиль',
-    path: '/profile',
+    path: '/profile/orders',
   },
   {
     text: 'Корзина',

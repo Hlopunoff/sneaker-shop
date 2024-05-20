@@ -1,4 +1,3 @@
-import { RouterLink } from "vue-router"
 import { computed, toRefs, unref } from "vue"
 
 import { useBem } from "@/composables/use"
@@ -10,11 +9,10 @@ export default {
   name: 'app-customer-order-card',
   components: {
     AppPrice,
-    RouterLink,
   },
   props: {
     orderId: {
-      type: Number,
+      type: [Number, String],
       required: true,
     },
     total: {

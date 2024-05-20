@@ -8,8 +8,6 @@ import AppPdpPage from '@/pages/pdp.vue'
 import AppNotFoundPage from '@/pages/404.vue'
 import AppProfilePage from '@/pages/profile.vue'
 
-import { getAuth } from 'firebase/auth'
-
 import { useAuthStore } from '@/modules/header/stores'
 
 const routes = [
@@ -39,7 +37,7 @@ const routes = [
         component: AppPdpPage
       },
       {
-        path: 'profile',
+        path: 'profile/orders',
         component: AppProfilePage,
         meta: { requiresAuth: true }
       },
@@ -68,7 +66,7 @@ router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
   
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (getAuth().currentUser || localStorage.getItem('user')) {
+    if (localStorage.getItem('user')) {
       next()
     } else {
       next('/')

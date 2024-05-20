@@ -1,0 +1,13 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__address {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 500;
+  color: $address-color;
+
+  @include bp.till(bp.$tablet) {
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+  }
+}

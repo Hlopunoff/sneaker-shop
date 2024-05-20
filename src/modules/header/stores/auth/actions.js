@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { useToast } from 'vue-toastification'
 
 import { useMainStore } from '@/modules/core/stores/main'
@@ -71,4 +71,16 @@ export const actions = {
       this.toggleAuthModal()
     })
   },
+  async signOut() {
+    const auth = getAuth()
+    try {
+      await signOut(auth)
+      localStorage.removeItem('user')
+
+      toast.success('Вы успешно вышли из аккаунта')
+      this.isLoggedIn = false
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
 }

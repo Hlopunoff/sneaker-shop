@@ -1,7 +1,5 @@
-import { ORDER as mockOrder } from "../../mocks/order"
-
 export const state = () => {
   return {
-    orders: new Array(3).fill(mockOrder),
+    orders: JSON.parse(localStorage.getItem('user'))?.orders ?? [],
   }
 }

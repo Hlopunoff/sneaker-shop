@@ -33,6 +33,10 @@ export default {
       cartStore.toggleModal()
     }
 
+    const onCreateButtonCLick = () => {
+      cartStore.createOrder()
+    }
+
     const redirectToCatalog = () => {
       router.push('/catalog/category/running')
 
@@ -47,6 +51,7 @@ export default {
 
       onOverlayClick,
       onCloseButtonClick,
+      onCreateButtonCLick,
       redirectToCatalog,
 
       cartItems,
