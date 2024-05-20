@@ -3,6 +3,7 @@
 #{$block}__images {
   display: flex;
   column-gap: 20px;
+  overflow-x: auto;
 
   @include bp.till(bp.$tablet) {
     margin-top: 10px;

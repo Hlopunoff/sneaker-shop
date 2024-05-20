@@ -21,6 +21,7 @@ export default {
 
     const isModalOpened = computed(() => navStore.isNavMinimizedOpened)
     const isAuth = computed(() => authStore.isAuthorized)
+    const isLoggedIn = computed(() => authStore.isLoggedIn)
 
     const onNavItemClick = (type = 'link') => {
       navStore.toggleNavMinimizedModal()
@@ -34,14 +35,20 @@ export default {
       navStore.toggleNavMinimizedModal()
     }
 
+    const onSignOutClick = () => {
+      authStore.signOut()
+    }
+
     return {
       b,
 
       isModalOpened,
       onNavItemClick,
       closeMenu,
+      onSignOutClick,
 
       isAuth,
+      isLoggedIn,
     }
   }
 }

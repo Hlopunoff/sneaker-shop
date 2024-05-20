@@ -18,7 +18,7 @@
           v-bind="item"/>
         </ul>
         <div :class="b('submit-button')">
-          <app-button full text="Оформить заказ"/>
+          <app-button @click="onCreateButtonCLick" full text="Оформить заказ"/>
         </div>
       </div>
       <button :class="b('close-btn')" @click="onCloseButtonClick">&#10060;</button>

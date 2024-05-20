@@ -1,4 +1,4 @@
-import { computed } from "vue"
+import { computed, onMounted } from "vue"
 
 import { useBem } from "@/composables/use"
 
@@ -15,7 +15,11 @@ export default {
     const b = useBem('app-customer-main')
     const ordersStore = useOrdersStore()
 
-    const orders = computed(() => ordersStore.orders)
+    const orders = computed(() => ordersStore.ordersFormatted)
+
+    onMounted(() => {
+      ordersStore.fetchOrders()
+    })
 
     return {
       b,

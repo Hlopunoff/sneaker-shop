@@ -6,7 +6,7 @@
   letter-spacing: -0.2px;
   color: $title-color;
 
-  @include bp.from(bp.$tablet) {
+  @include bp.till(bp.$tablet) {
     font-size: 24px;
   }
 

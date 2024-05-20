@@ -1,5 +1,6 @@
 export const state = () => {
   return {
+    isPending: false,
     products: getWishlistFromLocalStorage() ?? new Map(),
   }
 }

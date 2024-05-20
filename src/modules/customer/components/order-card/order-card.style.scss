@@ -5,6 +5,11 @@
 @import './styles/elems/id';
 @import './styles/elems/images';
 @import './styles/elems/image-wrap';
+@import './styles/elems/info';
+@import './styles/elems/total';
+@import './styles/elems/address';
+@import './styles/elems/delivery-date';
+@import './styles/elems/amount';
 
 #{$block} {
   display: block;

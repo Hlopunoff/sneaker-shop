@@ -2,6 +2,7 @@
   <header :class="b()">
     <app-nav-expanded v-if="fromDesktop"/>
     <app-nav-minimized v-else/>
+    <app-header-auth-modal :is-opened="isAuthModalOpened"/>
   </header>
 </template>
 
