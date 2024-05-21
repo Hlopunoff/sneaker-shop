@@ -81,6 +81,8 @@ export const actions = {
       this.isLoggedIn = false
     } catch (error) {
       toast.error(error.message)
+    } finally {
+      this.router.push('/')
     }
   }
 }

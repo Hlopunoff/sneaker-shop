@@ -1,7 +1,12 @@
+import { RouterLink } from "vue-router"
+
 import { useBem } from "@/composables/use"
 
 export default {
   name: 'app-home-category-item',
+  components: {
+    RouterLink,
+  },
   props: {
     name: {
       type: String,
@@ -23,8 +28,11 @@ export default {
       type: String,
       default: '',
     },
+    link: {
+      type: String,
+      default: '',
+    },
   },
-  components: {},
   setup() {
     const b = useBem('app-home-category-item')
 

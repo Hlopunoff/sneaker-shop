@@ -1,5 +1,5 @@
 <template>
-  <li :class="b()">
+  <router-link :to="link" :class="b()">
     <h4 :class="b('name')">{{ name }}</h4>
     <span v-if="productMinPrice" :class="b('min-price')">{{ productMinPrice }}</span>
     <p v-if="description" :class="b('description')" v-html="description"></p>
@@ -7,7 +7,7 @@
     <div :class="b('image')">
       <img :src="image" :alt="`${name} категория`">
     </div>
-  </li>
+  </router-link>
 </template>
 
 <script src="./category-item.script.js"></script>

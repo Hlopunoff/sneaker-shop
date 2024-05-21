@@ -1,6 +1,6 @@
 import { db } from "@/firebase"
 import { useAuthStore } from "@/modules/header/stores"
-import { getDoc, doc } from "firebase/firestore"
+import { getDoc, doc, updateDoc, deleteField } from "firebase/firestore"
 import { useToast } from "vue-toastification"
 
 const toast = useToast()
@@ -8,14 +8,6 @@ const toast = useToast()
 export const actions = {
   setOrder(order) {
     this.orders.unshift(order)
-    this.setOrderToLocalStorage()
-  },
-  setOrderToLocalStorage() {
-    const userData = JSON.parse(localStorage.getItem('user'))
-
-    if (!userData) return
-
-    localStorage.setItem('user', JSON.stringify({...userData, orders: this.orders}))
   },
   async fetchOrders() {
     const authStore = useAuthStore()
@@ -36,11 +28,27 @@ export const actions = {
       }
 
       this.orders = ordersInternal
-      this.setOrderToLocalStorage()
     } catch (error) {
       toast.error(error.message)
     } finally {
       this.isPending = false
+    }
+  },
+  async cancelOrder(orderId) {
+    const orderIdInternal = this.orders.filter((order) => order.id.startsWith(orderId))[0].id
+    
+    const authStore = useAuthStore()
+    const userId = authStore.user.uid
+    try {
+      await updateDoc(doc(db, 'users', userId), {
+        [`orders.${orderIdInternal}`]: deleteField(),
+      })
+
+      this.orders = this.orders.filter((order) => orderIdInternal !== order.id)
+
+      toast.success('Заказ успешно отменен')
+    } catch (error) {
+      toast.error(error.message)
     }
   }
 }
