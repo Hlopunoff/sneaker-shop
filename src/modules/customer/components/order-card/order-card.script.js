@@ -4,11 +4,15 @@ import { useBem } from "@/composables/use"
 import { formatDate } from "@/utils/formatDate"
 
 import { AppPrice } from "@/components/price"
+import { AppButton } from "@/ui-components/button"
+
+import { useOrdersStore } from "../../stores"
 
 export default {
   name: 'app-customer-order-card',
   components: {
     AppPrice,
+    AppButton,
   },
   props: {
     orderId: {
@@ -38,13 +42,19 @@ export default {
   },
   setup(props) {
     const b = useBem('app-customer-order-card')
-    const { deliveryDate } = toRefs(props)
+    const ordersStore = useOrdersStore()
+    const { deliveryDate, orderId } = toRefs(props)
 
     const deliveryDateFormatted = computed(() => formatDate(unref(deliveryDate)))
+
+    const onCancelOrderClick = () => {
+      ordersStore.cancelOrder(unref(orderId))
+    }
 
     return {
       b,
       deliveryDateFormatted,
+      onCancelOrderClick,
     }
   }
 }
