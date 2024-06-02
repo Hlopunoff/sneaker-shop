@@ -39,7 +39,23 @@ export const actions = {
       })
       .catch((error) => {
         this.isLoggedIn = false
-        console.error(error.message)
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            console.error(error)
+            toast.error('Пользователь с такими данными уже зарегистирован')
+            break
+          case 'auth/invalid-email':
+            console.error(error)
+            toast.error('Неверный формат почты')
+            break
+          case 'auth/weak-password':
+            console.error(error)
+            toast.error('Пароль слишком слабый!\nПридумайте другой')
+            break
+          default:
+            console.error(error)
+            toast.error('Произошла ошибка при создании пользователя\nПопробуйте еще раз')
+        }
       })
       .finally(() => {
         this.toggleAuthModal()
@@ -63,9 +79,29 @@ export const actions = {
         this.router.push('/')
       })
       .catch((error) => {
-        console.error(error.message)
         this.isLoggedIn = false
-        //todo Сделать свитч на разные error.message
+
+        switch (error.code) {
+          case 'auth/user-not-found':
+            console.error(error)
+            toast.error('Пользователь с таким email не найден')
+            break
+          case 'auth/wrong-password':
+            console.error(error)
+            toast.error('Неверный пароль')
+            break
+          case 'auth/invalid-email':
+            console.error(error)
+            toast.error('Неверный формат почты')
+            break
+          case 'auth/user-disabled':
+            console.error(error)
+            toast.error('Учетная запись пользователя откоючена')
+            break
+          default:
+            console.error(error)
+            toString.error('Ошибка авторизации пользователя')
+        }
     })
     .finally(() => {
       this.toggleAuthModal()
