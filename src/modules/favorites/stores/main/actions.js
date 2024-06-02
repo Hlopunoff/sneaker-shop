@@ -49,7 +49,7 @@ export const actions = {
       const res = await getDoc(doc(db, 'users', userId))
 
       if (!res.exists()) {
-        throw new Error('Пользователь не найден')
+        return
       }
       
       for (const key in res.data().wishlist) {
