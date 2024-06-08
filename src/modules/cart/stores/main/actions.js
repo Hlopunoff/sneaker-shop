@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 import { useAuthStore } from '@/modules/header/stores'
 import { useOrdersStore } from '@/modules/customer/stores'
+import { useLocationStore } from '@/modules/location/stores'
 
 const toast = useToast()
 
@@ -177,9 +178,19 @@ export const actions = {
   selectItemConfig(param, value) {
     this.itemConfiguration[param] = value
   },
+  // Создание заказа
   async createOrder() {
     const authStore = useAuthStore()
     const ordersStore = useOrdersStore()
+    const locationStore = useLocationStore()
+
+    const deliveryAddress = locationStore.deliveryAddress
+
+    if (!deliveryAddress) {
+      this.toggleModal()
+      locationStore.toggleLocationModal()
+      return
+    }
 
     const userId = authStore.user.uid
     try {
@@ -193,8 +204,9 @@ export const actions = {
       const order = {
         id: orderId,
         orderTotal: 0,
-        deliveryDate: Date.now(),
-        items: []
+        deliveryDate: Date.now() + (24 * 3600 * 1000),
+        items: [],
+        address: deliveryAddress,
       }
       let orderTotal = 0
 
@@ -221,6 +233,7 @@ export const actions = {
       toast.error(error.message)
     }
   },
+  // Очистка корзины
   async clearCart() {
     const authStore = useAuthStore()
     const userId = authStore.user.uid

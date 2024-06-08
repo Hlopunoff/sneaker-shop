@@ -1,0 +1,1 @@
+export { default as AppLocationModal } from './modal.vue'

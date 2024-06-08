@@ -1,0 +1,9 @@
+@use '@/assets/base/styles/colors';
+
+$name: 'app-location-modal';
+$block: '.' + $name;
+
+$modal-background-color: colors.color('background', 'base-7');
+$modal-padding-x-tablet: 100px;
+
+$title-color: colors.color('typography', 'base');

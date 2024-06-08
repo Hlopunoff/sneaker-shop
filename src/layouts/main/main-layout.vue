@@ -4,6 +4,7 @@
     <router-view/>
     <app-footer-main :class="b('footer')"/>
     <app-cart-main/>
+    <app-location-main/>
   </div>
 </template>
 

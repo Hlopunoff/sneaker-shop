@@ -6,6 +6,7 @@ export const getters = {
       images: order.items.map((item) => item.images[0]),
       itemsAmount: order.items.length,
       deliveryDate: order.deliveryDate,
+      address: order.address,
     }))
   }
 }
