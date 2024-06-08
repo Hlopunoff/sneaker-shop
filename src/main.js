@@ -12,6 +12,7 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import { VAutocomplete } from 'vuetify/components/VAutocomplete'
 import { VBreadcrumbs } from 'vuetify/components/VBreadcrumbs'
+import {VCombobox} from 'vuetify/components/VCombobox'
 import { VPagination } from 'vuetify/components/VPagination'
 import * as directives from 'vuetify/directives'
 
@@ -24,6 +25,7 @@ const vuetify = createVuetify({
     'app-filters-autocomplete': VAutocomplete,
     'app-breadcrumbs': VBreadcrumbs,
     'app-pagination': VPagination,
+    'app-combobox': VCombobox,
   }
 })
 

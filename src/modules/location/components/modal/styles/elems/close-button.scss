@@ -1,0 +1,17 @@
+@use '@/assets/base/styles/bp';
+
+#{$block}__close-button {
+  position: absolute;
+  cursor: pointer;
+  font-size: 20px;
+
+  @include bp.till(bp.$desktop-small) {
+    right: 15px;
+    top: 15px;
+  }
+
+  @include bp.from(bp.$desktop-small) {
+    right: 40px;
+    top: 40px;
+  }
+}

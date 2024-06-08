@@ -1,0 +1,1 @@
+export { default as AppLocationMain } from './main.vue'
