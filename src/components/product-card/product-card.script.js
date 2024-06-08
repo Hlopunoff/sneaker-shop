@@ -33,6 +33,7 @@ export default {
   },
   setup(props) {
     //TODO Сделать Ui компонент button-with-icon-only для кнопок, содержащих только иконки и заменить везде в проекте
+    // todo попробовать через intersection observer менять текущий слайд карточки
     const b = useBem('app-product-card')
     const bp = useBreakpoints(BREAKPOINTS)
     const toast = useToast()

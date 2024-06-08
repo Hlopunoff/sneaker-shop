@@ -55,6 +55,7 @@ export default {
     }
 
     watch(() => route.params.id, (id) => {
+      cartStore.resetSelectedProductConfiguration()
       mainStore.fetchProduct(id)
     }, { immediate: true })
 

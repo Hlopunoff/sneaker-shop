@@ -27,8 +27,9 @@ export default {
     const cartStore = useCartStore()
 
     const itemMods = computed(() => ({
-      [unref(type)]: true 
+      [unref(type)]: true
     }))
+    const selectedConfig = computed(() => cartStore.itemConfiguration)
 
     const onAttrClick = (value) => {
       const attrName = unref(type) === ITEM_PARAMS.COLOR ? ITEM_PARAMS.COLOR : ITEM_PARAMS.SIZE
@@ -40,6 +41,7 @@ export default {
       b,
       itemMods,
       onAttrClick,
+      selectedConfig,
     }
   }
 }

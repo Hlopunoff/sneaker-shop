@@ -9,11 +9,10 @@
       <app-product-card-label :class="b('label')" :size="labelSize" v-bind="product.badge"/>
       <div :class="b('cta')">
         <app-heart-icon :class="b('heart-icon', {active: isAddedToWishlist})" :width="32" :height="32" @click.prevent="toggleWishlist"/>
-        <app-cart-icon v-if="fromTablet" :width="32" :height="32" @click.prevent="addToCart"/>
       </div>
-      <ul :class="b('dots')">
+      <!-- <ul :class="b('dots')">
         <li v-for="(_, index) in product.images" :key="index" :class="b('dot', {active: currentSlideIndex === index})" @click="onSliderDotClick(index)"></li>
-      </ul>
+      </ul> -->
     </div>
     <div :class="b('product-info')">
       <h4 :class="b('name')">{{ product.name }}</h4>
@@ -23,7 +22,6 @@
         <span v-if="product.discount" :class="b('discount')">-{{ product.discount }}%</span>
       </div>
     </div>
-    <app-button v-if="!fromTablet" :class="b('cart-button')" text="В корзину" @click.prevent="addToCart"/>
   </router-link>
 </template>
 

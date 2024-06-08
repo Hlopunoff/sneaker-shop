@@ -72,11 +72,6 @@
 
     <ul :class="b('cta')">
       <li :class="b('cta-item')">
-        <button>
-          <app-search-icon :width="32" :height="32"/>
-        </button>
-      </li>
-      <li :class="b('cta-item')">
         <router-link to="/wishlist">
           <app-heart-icon :width="32" :height="32"/>
         </router-link>

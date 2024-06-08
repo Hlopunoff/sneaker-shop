@@ -1,6 +1,5 @@
 <template>
   <main :class="b()">
-    <app-breadcrumbs :class="b('breadcrumbs')" :items="['Главная', 'Кроссовки']"/>
     <app-plp-listing/>
   </main>
 </template>

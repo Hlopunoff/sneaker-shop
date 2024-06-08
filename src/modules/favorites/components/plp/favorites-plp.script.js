@@ -1,4 +1,4 @@
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, unref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { AppProductCard } from '@/components/product-card'
 import { AppPagination } from '@/components/pagination'
@@ -19,6 +19,7 @@ export default {
     const favoritesStore = useFavoritesStore()
 
     const items = computed(() => favoritesStore.productsFormatted)
+    const hasItems = computed(() => unref(items).length)
 
     onMounted(() => {
       favoritesStore.fetchWishlist()
@@ -28,6 +29,7 @@ export default {
       b,
 
       items,
+      hasItems,
     }
   }
 }

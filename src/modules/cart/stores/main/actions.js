@@ -29,7 +29,12 @@ export const actions = {
     const productInternal = await this.fetchProductById(productId)
     const selectedProductConfigInternal = this.itemConfiguration
 
+    const hasSelectedConfig = Object.values(selectedProductConfigInternal).reduce((acc, value) => acc + Number(!!value), 0)
     try {
+      if (!hasSelectedConfig) {
+        throw new Error('Вы не выбрали конфигурацию товара')
+      }
+
       this.isCartPending = true
       if (this.items.has(productId)) {
         const prevState = this.items.get(productId)
@@ -230,11 +235,11 @@ export const actions = {
     } catch (error) {
       toast.error(error.message)
     }
-  }
+  },
   // Ресет выбранных параметров продукта
-  // resetSelectedProductConfiguration() {
-  //   for (const key in this.itemConfiguration) {
-  //     this.itemConfiguration[key] = ''
-  //   }
-  // }
+  resetSelectedProductConfiguration() {
+    for (const key in this.itemConfiguration) {
+      this.itemConfiguration[key] = ''
+    }
+  }
 }

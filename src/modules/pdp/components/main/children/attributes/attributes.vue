@@ -5,7 +5,7 @@
       <li 
       v-for="(attr, index) in values"
       :key="index" 
-      :class="b('item', itemMods)" 
+      :class="b('item', {...itemMods, selected: (selectedConfig[type] === attr || (selectedConfig[type].value === attr.value && attr.value !== undefined))})"
       :style="{backgroundColor: attr.color}"
       @click="onAttrClick(attr)">{{ type === 'size' ? attr : null }}</li>
     </ul>
