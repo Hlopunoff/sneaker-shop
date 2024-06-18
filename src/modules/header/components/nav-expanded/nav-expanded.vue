@@ -24,16 +24,6 @@
 
     <ul :class="b('social-links')">
       <li :class="b('social-link')">
-        <a>
-          <img src="@/assets/icons/whatsapp.svg"/>
-        </a>
-      </li>
-      <li :class="b('social-link')">
-        <a>
-          <img src="@/assets/icons/telegram.svg"/>
-        </a>
-      </li>
-      <li :class="b('social-link')">
         <a href="mailto:order@ogstyle.ru">
           <img src="@/assets/icons/mail.svg"/>
         </a>
@@ -61,12 +51,6 @@
       </li>
       <li :class="b('category')">
         <router-link to="/catalog/category/volleyball">Волейбол</router-link>
-      </li>
-      <li :class="b('category')">
-        <router-link to="/catalog/category/sneakers">Кеды</router-link>
-      </li>
-      <li :class="b('category')">
-        <router-link to="/catalog/category/trainers">Кроссовки</router-link>
       </li>
     </ul>
 

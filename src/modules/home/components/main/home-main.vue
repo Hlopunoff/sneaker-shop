@@ -5,7 +5,7 @@
     <app-home-product-slider/>
     <app-home-banner/>
     <app-home-categories/>
-    <app-home-cta/>
+    <!-- <app-home-cta/> -->
   </main>
 </template>
 

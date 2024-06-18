@@ -40,14 +40,6 @@
           :class="b('nav-item')" 
           to="/catalog/category/volleyball"
           @click="onNavItemClick">Волейбол</router-link>
-          <router-link 
-          :class="b('nav-item')" 
-          to="/catalog/category/sneakers"
-          @click="onNavItemClick">Кеды</router-link>
-          <router-link 
-          :class="b('nav-item')" 
-          to="/catalog/category/trainers"
-          @click="onNavItemClick">Кроссовки</router-link>
         </nav>
         <app-button v-if="isLoggedIn" :class="b('logout-button')" text="Выйти из профиля" @click="onSignOutClick"/>
         <button :class="b('button-close')" @click="closeMenu">&#10060;</button>

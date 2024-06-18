@@ -1,6 +1,7 @@
 import { computed, watch, unref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useBreakpoints } from '@vueuse/core'
+import { useToast } from 'vue-toastification'
 
 import { useBem } from "@/composables/use"
 
@@ -32,6 +33,7 @@ export default {
   },
   setup() {
     const bp = useBreakpoints(BREAKPOINTS)
+    const toast = useToast()
     const b = useBem('app-pdp-main')
     const route = useRoute()
 
@@ -42,14 +44,17 @@ export default {
     const galleryView = computed(() => bp.TABLET_SMALL.value ? 'expanded' : 'narrow')
 
     const product = computed(() => mainStore.productFormatted)
-    const isCartButtonDisabled = computed(() => !authStore.isLoggedIn || cartStore.isCartPending)
+    const isCartButtonDisabled = computed(() => cartStore.isCartPending)
 
     const getInfoItemView = (item) => {
       return Array.isArray(item.details) ? 'table' : 'row'
     }
 
     const addToCart = () => {
-      if (!authStore.isLoggedIn) return
+      if (!authStore.isLoggedIn) {
+        toast.error('Вы не авторизованы')
+        return
+      }
 
       cartStore.addToCart(unref(product).id)
     }

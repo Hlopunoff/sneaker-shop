@@ -66,7 +66,7 @@ router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
   
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (localStorage.getItem('user')) {
+    if (authStore.isLoggedIn) {
       next()
     } else {
       next('/')

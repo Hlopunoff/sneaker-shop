@@ -8,18 +8,6 @@
         <p :class="b('description')">OGstyle - магазин по продаже оригинальной одежды и обуви мировых брендов</p>
         <a :class="b('phone')" href="tel:+79020416339">+7 (902) 041-63-39</a>
         <a :class="b('mail')" href="mailto:order@ogstyle.ru">order@ogstyle.ru</a>
-        <ul :class="b('socials')">
-          <li :class="b('social')">
-            <a>
-              <img src="@/assets/icons/whatsapp.svg" alt="whatsapp social"/>
-            </a>
-          </li>
-          <li :class="b('social')">
-            <a>
-              <img src="@/assets/icons/telegram.svg" alt="telegram social"/>
-            </a>
-          </li>
-        </ul>
       </div>
       <div :class="b('col')">
         <app-footer-menu-list :class="b('menu-list')">

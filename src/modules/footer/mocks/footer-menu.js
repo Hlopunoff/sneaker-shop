@@ -1,9 +1,5 @@
 export const catalogItems = [
   {
-    text: 'Кроссовки',
-    path: '/catalog/trainers',
-  },
-  {
     text: 'Беговые',
     path: '/catalog/category/running',
   },
@@ -18,10 +14,6 @@ export const catalogItems = [
   {
     text: 'Волейбол',
     path: '/catalog/category/volleyball',
-  },
-  {
-    text: 'Кеды',
-    path: '/catalog/category/sneakers',
   },
   {
     text: 'Теннис',
@@ -60,9 +52,5 @@ export const sectionMainItems = [
   {
     text: 'Профиль',
     path: '/profile/orders',
-  },
-  {
-    text: 'Корзина',
-    path: '/cart',
   },
 ]

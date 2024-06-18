@@ -5,7 +5,6 @@
           <app-home-slide v-for="slide in slides" :key="slide.id" :class="b('slide')" :background-image="slide.image">
             <h2 :class="b('title')">{{ slide.title }}</h2>
             <p :class="b('text')">{{ slide.text }}</p>
-            <app-button :class="b('button')" text="Подробнее" :view="slideButtonView"/>
           </app-home-slide>
         </div>
         <nav :class="b('cta')">

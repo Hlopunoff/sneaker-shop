@@ -23,6 +23,26 @@ export const actions = {
       mainStore.enableScroll()
     }
   },
+  // Запрос корзины
+  async fetchCart() {
+    const authStore = useAuthStore()
+    const userId = authStore.user.uid
+    try {
+      const res = await getDoc(doc(db, 'users', userId))
+
+      if (res.exists() && res.data().cart) {
+        for (const key in res.data().cart) {
+          this.items.set(key, res.data().cart[key])
+        }
+
+        this.totalCount = this.items.size
+        this.updateLocalStorageCart()
+      }
+    } catch (error) {
+      console.error(error)
+      toast.error('Не удалось получить данные корзины')
+    }
+  },
   // Добавление товара в корзину
   async addToCart(productId) {
     const authStore = useAuthStore()

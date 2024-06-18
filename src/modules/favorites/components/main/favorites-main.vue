@@ -1,6 +1,5 @@
 <template>
   <main :class="b()">
-    <app-breadcrumbs :crumbs="matched"/>
     <app-favorites-plp />
   </main>
 </template>

@@ -2,6 +2,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 import { useToast } from 'vue-toastification'
 
 import { useMainStore } from '@/modules/core/stores/main'
+import { useCartStore } from '@/modules/cart/stores/main'
 
 const toast = useToast()
 
@@ -27,11 +28,11 @@ export const actions = {
       .then(() => {
         this.user = authInstance.currentUser
         
-        if (localStorage.getItem('user')) {
-          //todo нотификация о том, что такой пользователь есть
-        } else {
-          localStorage.setItem('user', JSON.stringify(authInstance.currentUser))
-        }
+        // if (localStorage.getItem('user')) {
+        //   //todo нотификация о том, что такой пользователь есть
+        // } else {
+        //   localStorage.setItem('user', JSON.stringify(authInstance.currentUser))
+        // }
 
         this.isLoggedIn = true
         toast.success('Успешная регистрация')
@@ -63,16 +64,15 @@ export const actions = {
   },
   authUser(credentials) {
     const authInstance = getAuth()
+    const cartStore = useCartStore()
 
     signInWithEmailAndPassword(authInstance, credentials.email, credentials.password)
-      .then(() => {
+      .then(async () => {
         this.user = authInstance.currentUser
 
-        if (localStorage.getItem('user')) {
-          //todo нотификация о том, что уже авторизован
-        } else {
-          localStorage.setItem('user', JSON.stringify(authInstance.currentUser))
-        }
+        localStorage.setItem('user', JSON.stringify(authInstance.currentUser))
+
+        await cartStore.fetchCart()
 
         this.isLoggedIn = true
         toast.success('Успешная авторизация')
@@ -98,6 +98,14 @@ export const actions = {
             console.error(error)
             toast.error('Учетная запись пользователя откоючена')
             break
+          case 'auth/invalid-credential':
+            console.error(error)
+            toast.error('Неверные данные')
+            break
+          case 'auth/missing-password':
+            console.error(error)
+            toast.error('Вы не ввели пароль')
+            break
           default:
             console.error(error)
             toString.error('Ошибка авторизации пользователя')
@@ -109,8 +117,12 @@ export const actions = {
   },
   async signOut() {
     const auth = getAuth()
+    const cartStore = useCartStore()
     try {
       await signOut(auth)
+      cartStore.items = new Map()
+      cartStore.totalCount = 0
+      cartStore.updateLocalStorageCart()
       localStorage.removeItem('user')
 
       toast.success('Вы успешно вышли из аккаунта')

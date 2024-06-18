@@ -7,7 +7,7 @@ export const categories = [
     type: 'trainers',
     productMinPrice: 8990,
     image: trainersCategory,
-    link: 'catalog/category/sneakers'
+    link: 'catalog/category/running'
   },
   {
     name: 'Беговые',

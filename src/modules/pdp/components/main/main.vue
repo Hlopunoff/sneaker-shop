@@ -5,7 +5,7 @@
       <h2 :class="b('name')">{{ product.name }}</h2>
       <app-pdp-prices :class="b('prices')" :current="product.prices?.current" :old="product.prices?.old"/>
       <app-pdp-attributes v-for="(attributes, index) in product.configuration" :key="index" :class="b('attributes')" v-bind="attributes"/>
-      <app-button :class="b('button')" text="Добавить в корзину" full @click="addToCart" :disabled="isCartButtonDisabled"/>
+      <app-button :class="b('button')" text="Добавить в корзину" full @click="addToCart()" :disabled="isCartButtonDisabled"/>
       <div :class="b('info-list')">
         <app-pdp-info v-for="(item, index) in product.productInfo" :key="index" :class="b('info')" :title="item.title">
           <app-pdp-info-item :view="getInfoItemView(item)" :details="item.details"/>

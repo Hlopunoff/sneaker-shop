@@ -2,6 +2,7 @@
   <main :class="b()">
     <h1 :class="b('title')">Заказы</h1>
     <app-customer-orders :class="b('orders')" :orders="orders"/>
+    <app-button v-if="fromDesktopSmall" :class="b('logout-button')" text="Выйти из профиля" @click="onLogoutButtonClick"/>
   </main>
 </template>
 
