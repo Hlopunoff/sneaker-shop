@@ -23,6 +23,7 @@ export const actions = {
   },
   registerUser(credentials) {
     const authInstance = getAuth()
+    this.isPending = true
 
     createUserWithEmailAndPassword(authInstance, credentials.email, credentials.password)
       .then(() => {
@@ -60,11 +61,14 @@ export const actions = {
       })
       .finally(() => {
         this.toggleAuthModal()
+        this.isPending = false
       })
   },
   authUser(credentials) {
     const authInstance = getAuth()
     const cartStore = useCartStore()
+
+    this.isPending = true
 
     signInWithEmailAndPassword(authInstance, credentials.email, credentials.password)
       .then(async () => {
@@ -113,11 +117,14 @@ export const actions = {
     })
     .finally(() => {
       this.toggleAuthModal()
+      this.isPending = false
     })
   },
   async signOut() {
     const auth = getAuth()
     const cartStore = useCartStore()
+    
+    this.isPending = true
     try {
       await signOut(auth)
       cartStore.items = new Map()
@@ -131,6 +138,7 @@ export const actions = {
       toast.error(error.message)
     } finally {
       this.router.push('/')
+      this.isPending = false
     }
   }
 }

@@ -24,6 +24,7 @@ export default {
     const authStore = useAuthStore()
 
     const fromDesktopSmall = computed(() => unref(bp.DESKTOP_SMALL))
+    const isLogoutButtonDisabled = computed(() => authStore.isPending)
 
     const orders = computed(() => ordersStore.ordersFormatted)
 
@@ -41,6 +42,7 @@ export default {
       orders,
       fromDesktopSmall,
       onLogoutButtonClick,
+      isLogoutButtonDisabled,
     }
   }
 }

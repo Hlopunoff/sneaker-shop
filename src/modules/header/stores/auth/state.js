@@ -4,4 +4,5 @@ export const state = () => ({
   activeTab: 'registration',
   user: JSON.parse(localStorage.getItem('user')) || {},
   isLoggedIn: !!localStorage.getItem('user'),
+  isPending: false,
 })

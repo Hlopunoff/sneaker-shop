@@ -36,6 +36,7 @@
           :label="submitButtonLabel"
           :outer-class="b('button-outer')"
           :input-class="b('button-input')"
+          :disabled="isButtonDisabled"
           @click="onSubmit"
           />
         </FormKit>

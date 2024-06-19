@@ -21,6 +21,7 @@ export default {
 
     const activeTab = computed(() => authStore.activeTab)
     const submitButtonLabel = computed(() => activeTab.value === 'auth' ? 'Авторизоваться' : 'Зарегистрироваться')
+    const isButtonDisabled = computed(() => authStore.isPending)
 
     const onModalClose = () => {
       authStore.toggleAuthModal()
@@ -50,6 +51,7 @@ export default {
       email,
       password,
       onSubmit,
+      isButtonDisabled,
     }
   }
 }
