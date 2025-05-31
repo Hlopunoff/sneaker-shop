@@ -1,18 +1,13 @@
-import { getDocs, collection } from 'firebase/firestore'
-import { db } from "@/firebase"
+import { Api } from '@/api'
+
+const api = new Api()
 
 export const actions = {
   async fetchSliderContent() {
     try {
-      const res = await getDocs(collection(db, 'products'))
+      const {data} = await api.get('catalog/placements')
 
-      const productsFiltered = res.docs.filter((product) => {
-        if (!product.exists()) return false
-
-        return product.data().actions.isPopular
-      }).map((product) => ({ ...product.data(), id: product.id }))
-
-      this.sliderContent = productsFiltered
+      this.sliderContent = data.products
     } catch (error) {
       console.error('Не удалось получить контент для слайдера', error.message)
     }

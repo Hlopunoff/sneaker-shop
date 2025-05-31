@@ -14,7 +14,7 @@ export default {
   },
   props: {
     id: {
-      type: String,
+      type: Number,
       required: true
     },
     name: {
@@ -30,7 +30,7 @@ export default {
       required: true,
     },
     color: {
-      type: Object,
+      type: String,
       required: true,
     },
     inStock: {
@@ -51,20 +51,29 @@ export default {
     },
   },
   setup(props) {
-    const { id } = toRefs(props)
+    const { id, color, size } = toRefs(props)
 
     const b = useBem('app-cart-item')
     const cartStore = useCartStore()
 
     const increment = () => {
+      cartStore.selectItemConfig('size', unref(size))
+      cartStore.selectItemConfig('color', unref(color))
+
       cartStore.addToCart(unref(id))
     }
 
     const decrement = () => {
+      cartStore.selectItemConfig('size', unref(size))
+      cartStore.selectItemConfig('color', unref(color))
+
       cartStore.removeItemById(unref(id))
     }
 
     const removeItem = () => {
+      cartStore.selectItemConfig('size', unref(size))
+      cartStore.selectItemConfig('color', unref(color))
+
       cartStore.deleteFromCart(unref(id))
     }
 

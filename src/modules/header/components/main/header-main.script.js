@@ -8,7 +8,7 @@ import { AppNavExpanded } from '../nav-expanded'
 import { AppNavMinimized } from '../nav-minimized'
 import { AppHeaderAuthModal } from '../auth-modal'
 
-import { useAuthStore } from '../../stores'
+import { useAuthStore } from '@/modules/auth/stores'
 
 export default {
   name: 'header-main',

@@ -6,7 +6,7 @@ import { useToast } from 'vue-toastification'
 import { AppProductCardLabel } from './children/label'
 import { SIZE as LABEL_SIZE } from './children/label/scripts/const'
 
-import { useAuthStore } from '@/modules/header/stores'
+import { useAuthStore } from '@/modules/auth/stores'
 import { useCartStore } from '@/modules/cart/stores/main'
 import { useFavoritesStore } from '@/modules/favorites/stores'
 
@@ -51,7 +51,7 @@ export default {
     const labelSize = computed(() => fromTablet.value ? LABEL_SIZE.M : LABEL_SIZE.S)
     const currentCurrencyFormatted = computed(() => formatNumber(unref(product).prices.current, { showCurrency: true }))
     const oldCurrencyFormatted = computed(() => formatNumber(unref(product).prices.old, { showCurrency: true }))
-    const isAddedToWishlist = computed(() => favoritesStore.products.has(unref(product).id))
+    const isAddedToWishlist = computed(() => !!favoritesStore.products.find((item) => item.id === unref(product).id))
 
     const onSliderDotClick = (index) => {
       currentSlideIndex.value = index

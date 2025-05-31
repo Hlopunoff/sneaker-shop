@@ -33,8 +33,9 @@ export default {
 
     const onAttrClick = (value) => {
       const attrName = unref(type) === ITEM_PARAMS.COLOR ? ITEM_PARAMS.COLOR : ITEM_PARAMS.SIZE
+      const attrValue = unref(type) === ITEM_PARAMS.COLOR ? value.color : value
 
-      cartStore.selectItemConfig(attrName, value)
+      cartStore.selectItemConfig(attrName, attrValue)
     }
 
     return {

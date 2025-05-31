@@ -8,7 +8,7 @@ import AppPdpPage from '@/pages/pdp.vue'
 import AppNotFoundPage from '@/pages/404.vue'
 import AppProfilePage from '@/pages/profile.vue'
 
-import { useAuthStore } from '@/modules/header/stores'
+import { useAuthStore } from '@/modules/auth/stores'
 
 const routes = [
   {

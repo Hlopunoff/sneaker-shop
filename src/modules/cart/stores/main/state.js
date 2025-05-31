@@ -1,20 +1,13 @@
 export const state = () => {
   const getCartFromLocalStorage = () => {
-    const cart = JSON.parse(localStorage.getItem('user'))?.cart
-    const cartFormatted = new Map()
-
-    for (const key in cart) {
-      cartFormatted.set(key, cart[key])
-    }
-
-    return cartFormatted
+    return JSON.parse(localStorage.getItem('cart'))
   }
 
   return {
     isModalOpened: false,
     isCartPending: false,
-    totalCount: getCartFromLocalStorage()?.size ?? 0,
-    items: getCartFromLocalStorage() ?? new Map(),
+    totalCount: getCartFromLocalStorage()?.totalCount ?? 0,
+    items: getCartFromLocalStorage()?.items ?? [],
     itemConfiguration: {
       size: '',
       color: '',

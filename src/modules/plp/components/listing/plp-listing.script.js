@@ -37,7 +37,7 @@ export default {
     watch(() => route.params.category, (category) => {
       filtersStore.getFilters(category)
       mainPlpStore.fetchProductsByCategory(category)
-
+      
     }, { immediate: true })
     
     watch([() => unref(selectedFilters).brand, () => unref(selectedFilters).colors, () => unref(selectedFilters).sizes], () => {

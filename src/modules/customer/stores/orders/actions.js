@@ -1,33 +1,17 @@
-import { db } from "@/firebase"
-import { useAuthStore } from "@/modules/header/stores"
-import { getDoc, doc, updateDoc, deleteField } from "firebase/firestore"
+import { Api } from "@/api"
 import { useToast } from "vue-toastification"
 
 const toast = useToast()
+const api = new Api()
 
 export const actions = {
-  setOrder(order) {
-    this.orders.unshift(order)
-  },
   async fetchOrders() {
-    const authStore = useAuthStore()
-    const userId = authStore.user.uid
     try {
       this.isPending = true
 
-      const res = await getDoc(doc(db, 'users', userId))
+      const { data } = await api.get('customer/orders', {credentials: 'include'})
 
-      if (!res.exists()) {
-        return
-      }
-
-      const ordersInternal = []
-
-      for (const order of Object.values(res.data().orders)) {
-        ordersInternal.push(order)
-      }
-
-      this.orders = ordersInternal
+      this.orders = data
     } catch (error) {
       toast.error(error.message)
     } finally {
@@ -37,12 +21,8 @@ export const actions = {
   async cancelOrder(orderId) {
     const orderIdInternal = this.orders.filter((order) => order.id.startsWith(orderId))[0].id
     
-    const authStore = useAuthStore()
-    const userId = authStore.user.uid
     try {
-      await updateDoc(doc(db, 'users', userId), {
-        [`orders.${orderIdInternal}`]: deleteField(),
-      })
+      await api.delete(`customer/order?orderId=${orderIdInternal}`, {credentials: 'include'})
 
       this.orders = this.orders.filter((order) => orderIdInternal !== order.id)
 

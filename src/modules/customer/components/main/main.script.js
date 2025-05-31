@@ -9,7 +9,7 @@ import { BREAKPOINTS } from "@/constants"
 import { AppCustomerOrders } from "../orders"
 
 import { useOrdersStore } from "../../stores/orders"
-import { useAuthStore } from "@/modules/header/stores"
+import { useAuthStore } from "@/modules/auth/stores"
 
 export default {
   name: 'app-customer-main',

@@ -5,7 +5,8 @@ import { AppButton } from '@/ui-components/button'
 
 import { useBem } from "@/composables/use"
 import { useCartStore } from '@/modules/cart/stores/main'
-import { useNavStore, useAuthStore } from '../../stores'
+import { useNavStore } from '../../stores'
+import {useAuthStore} from '@/modules/auth/stores'
 
 export default {
   name: 'app-header-nav-minimized-modal',

@@ -1,24 +1,22 @@
 import { useToast } from 'vue-toastification'
-import { collection, getDocs, query, where } from 'firebase/firestore'
-import { db } from "@/firebase"
+import { Api } from '@/api'
 
 const toast = useToast()
+const api = new Api()
 
 export const actions = {
   async getFilters(category) {
     this.resetFilters()
     try {
-      const q = query(collection(db, 'products'), where('category', '==', category))
-
-      const res = await getDocs(q)
-
-      res.forEach((product) => {
-        const productData = product.data()
-        
-        this.setColorFilter(productData.configuration.colors.values)
-        this.setSizeFilter(productData.configuration.sizes.values)
-        this.filters.brands.add(productData.brand)
+      const { data } = await api.post('catalog/filters', {
+        body: {
+          category,
+        }
       })
+
+      this.filters.colors = data.colors
+      this.filters.sizes = data.sizes
+      this.filters.brands = data.brands
     } catch (error) {
       toast.error(error.message)
     }

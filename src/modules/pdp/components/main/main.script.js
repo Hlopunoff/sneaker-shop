@@ -16,7 +16,7 @@ import { AppHomeProductSlider } from '@/modules/home/components/product-slider'
 
 import { usePdpMainStore } from '../../stores'
 import { useCartStore } from '@/modules/cart/stores/main'
-import { useAuthStore } from '@/modules/header/stores'
+import { useAuthStore } from '@/modules/auth/stores'
 
 import { BREAKPOINTS } from '@/constants'
 

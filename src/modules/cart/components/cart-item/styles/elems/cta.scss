@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-grow: 1;
+  align-items: flex-end;
 
   @include bp.till(bp.$desktop-small) {
     text-align: right;

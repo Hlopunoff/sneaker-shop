@@ -13,7 +13,7 @@
         <ul :class="b('list')">
           <app-cart-item
           v-for="item in cartItems" 
-          :key="item.id" 
+          :key="item.id + item.size" 
           :class="b('item')"
           v-bind="item"/>
         </ul>

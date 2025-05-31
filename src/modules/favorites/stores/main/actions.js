@@ -1,38 +1,24 @@
 import { useToast } from 'vue-toastification'
-import { deleteField, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
-import { useAuthStore } from '@/modules/header/stores'
-import { db } from '@/firebase'
+import { Api } from '@/api'
 
 const toast = useToast()
+const api = new Api()
 
 export const actions = {
   async toggleWishList(productId) {
-    const authStore = useAuthStore()
-    const userId = authStore.user.uid
-
     try {
-      const product = await getDoc(doc(db, 'products', productId))
+      const productIndex = this.products.findIndex((product) => product.id === productId)
 
-      if (!product.exists()) {
-        throw new Error('Не удалось добавить товар в избранное')
-      }
+      if (productIndex > -1) {
+        await api.delete('favorites/delete', {body: {productId}, credentials: 'include'})
 
-      if (this.products.has(productId)) {
-        await updateDoc(doc(db, 'users', userId), {
-          [`wishlist.${productId}`]: deleteField(),
-        })
-
-        this.products.delete(productId)
+        this.products.splice(productIndex, 1)
 
         toast.success('Товар успешно удален из избранного')
       } else {
-        await setDoc(doc(db, 'users', userId), {
-          wishlist: {
-            [productId]: product.data()
-          }
-        }, {merge: true})
+        const { data } = await api.post('favorites/add', {body: {productId}, credentials: 'include'})
 
-        this.products.set(productId, product.data())
+        this.products.push(data)
 
         toast.success('Товар успешно добавлен в избранное')
       }
@@ -41,20 +27,12 @@ export const actions = {
     }
   },
   async fetchWishlist() {
-    const authStore = useAuthStore()
-    const userId = authStore.user.uid
     try {
       this.isPending = true
 
-      const res = await getDoc(doc(db, 'users', userId))
-
-      if (!res.exists()) {
-        return
-      }
+      const { data } = await api.get('favorites/listing', {credentials: 'include'})
       
-      for (const key in res.data().wishlist) {
-        this.products.set(key, res.data().wishlist?.[key])
-      }
+      this.products = data.products
     } catch (error) {
       toast.error(error.message)
     }

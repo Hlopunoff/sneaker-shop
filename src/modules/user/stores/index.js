@@ -1,0 +1,1 @@
+export { useUserMainStore } from './main'

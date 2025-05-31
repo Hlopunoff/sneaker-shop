@@ -1,19 +1,19 @@
 export const getters = {
   itemsFormatted() {
     const itemsFormatted = []
-
-    for (const [key, value] of this.items.entries()) {
+    
+    this.items.forEach((item) => {
       itemsFormatted.push({
-        id: key,
-        name: value.name,
-        imageUrl: value.images[0],
-        size: value.selectedConfiguration?.size,
-        color: value.selectedConfiguration?.color?.color,
-        amount: value.amount,
-        currentPrice: value.prices.current,
-        oldPrice: value.prices.old
+        id: item.id,
+        name: item.name,
+        imageUrl: item.images[0],
+        size: item.selectedConfiguration?.size,
+        color: item.selectedConfiguration?.color,
+        amount: item.amount,
+        currentPrice: item.prices.current,
+        oldPrice: item.prices.old
       })
-    }
+    })
 
     return itemsFormatted
   },

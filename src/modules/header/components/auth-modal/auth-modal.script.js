@@ -1,7 +1,7 @@
 import { computed, ref, unref } from 'vue'
 
 import { useBem } from "@/composables/use"
-import { useAuthStore } from '../../stores'
+import { useAuthStore } from '@/modules/auth/stores'
 
 export default {
   name: 'app-header-auth-modal',

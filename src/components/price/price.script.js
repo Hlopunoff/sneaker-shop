@@ -24,7 +24,7 @@ export default {
   },
   setup(props) {
     const b = useBem('app-price')
-
+    
     const valueFormatted = computed(() => formatNumber(props.value, {showCurrency: props.showCurrency}))
 
     return {

@@ -18,7 +18,7 @@ export default {
     const b = useBem('app-favorites-plp')
     const favoritesStore = useFavoritesStore()
 
-    const items = computed(() => favoritesStore.productsFormatted)
+    const items = computed(() => favoritesStore.products)
     const hasItems = computed(() => unref(items).length)
 
     onMounted(() => {
