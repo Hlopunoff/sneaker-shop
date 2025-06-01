@@ -50,7 +50,7 @@ export const actions = {
       this.router.push('/')
     } catch (error) {
       this.isLoggedIn = false
-      toast.error('Ошибка регистрации пользователя')
+      toast.error(error.message)
     } finally {
       this.toggleAuthModal()
         this.isPending = false
@@ -84,7 +84,7 @@ export const actions = {
     } catch (error) {
       console.error(error)
       this.isLoggedIn = false
-      toast.error('Ошибка авторизации пользователя')
+      toast.error(error.message)
     } finally {
       this.toggleAuthModal()
       this.isPending = false
