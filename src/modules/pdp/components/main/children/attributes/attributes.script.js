@@ -21,7 +21,7 @@ export default {
     },
   },
   setup(props) {
-    const { type } = toRefs(props)
+    const { type, values } = toRefs(props)
 
     const b = useBem('app-pdp-attributes')
     const cartStore = useCartStore()
@@ -30,6 +30,7 @@ export default {
       [unref(type)]: true
     }))
     const selectedConfig = computed(() => cartStore.itemConfiguration)
+    const valuesInternal = computed(() => unref(type) === 'size' ? unref(values)?.toSorted((a, b) => a - b) : unref(values))
 
     const onAttrClick = (value) => {
       const attrName = unref(type) === ITEM_PARAMS.COLOR ? ITEM_PARAMS.COLOR : ITEM_PARAMS.SIZE
@@ -43,6 +44,8 @@ export default {
       itemMods,
       onAttrClick,
       selectedConfig,
+
+      valuesInternal,
     }
   }
 }

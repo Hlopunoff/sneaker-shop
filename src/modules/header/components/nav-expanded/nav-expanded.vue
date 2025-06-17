@@ -4,7 +4,7 @@
       <img src="@/assets/icons/logo-main.svg" alt="OG Style (Go to main page)"/>
     </router-link>
 
-    <ul :class="b('info-links')">
+    <!-- <ul :class="b('info-links')">
       <li :class="b('info-link')">
         <router-link to="/purchases">Оплата и доставка</router-link>
       </li>
@@ -20,7 +20,7 @@
       <li :class="b('info-link')">
         <router-link to="/proofs">Оригинал 100%</router-link>
       </li>
-    </ul>
+    </ul> -->
 
     <ul :class="b('social-links')">
       <li :class="b('social-link')">

@@ -51,10 +51,33 @@ export default {
       ordersStore.cancelOrder(unref(orderId))
     }
 
+    const generateDeliveryPhone = () => {
+      let phoneFormatted = '+7 (9'
+
+      for (let i = 0; i < 12; i++) {
+        if (i === 2) {
+          phoneFormatted += ') '
+        } else if (i === 6 || i === 9) {
+          phoneFormatted += '-'
+        } else {
+          phoneFormatted += Math.floor(Math.random() * 10)
+        }
+      }
+
+      const phone = phoneFormatted.replace(/[\s()-]/g, '')
+
+      return { phoneFormatted, phone }
+    }
+
+    const { phone, phoneFormatted } = generateDeliveryPhone()
+
     return {
       b,
       deliveryDateFormatted,
       onCancelOrderClick,
+
+      phone,
+      phoneFormatted,
     }
   }
 }

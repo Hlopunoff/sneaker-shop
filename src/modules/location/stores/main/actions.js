@@ -23,15 +23,18 @@ export const actions = {
     try {
       const res = await geoSuggest.getAddressSuggest(address)
 
-      this.suggestions = res.results.map((item) => item.address.formatted_address)
+      this.suggestions = res.results?.map((item) => item.address.formatted_address)
     } catch (error) {
-      toast.error(error.message)
+      toast.error('Что то пошло не так')
       console.error(error)
     }
   },
   setDeliveryAddress(address) {
     if (!address) {
       toast.error('Вы не ввели адрес')
+      return
+    } else if (!this.suggestions?.includes(address)) {
+      toast.error('Вы ввели неверный адрес')
       return
     }
 

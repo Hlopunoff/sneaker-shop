@@ -3,7 +3,7 @@
     <h5 :class="b('title')">{{ title }}</h5>
     <ul :class="b('list')">
       <li 
-      v-for="(attr, index) in values"
+      v-for="(attr, index) in valuesInternal"
       :key="index" 
       :class="b('item', {...itemMods, selected: (selectedConfig[type] === attr || ((selectedConfig[type] === attr.color) && attr.color !== undefined))})"
       :style="{backgroundColor: attr.color}"

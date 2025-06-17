@@ -20,7 +20,7 @@ export default {
     const isModalOpened = computed(() => locationStore.isLocationModalOpened)
     const suggestions = computed(() => locationStore.suggestions)
 
-    const enterDeliveryAddress = debounce(locationStore.enterDeliveryAddress, 300)
+    const enterDeliveryAddress = debounce(locationStore.enterDeliveryAddress, 200)
 
     const onModalClose = () => {
       locationStore.toggleLocationModal()
@@ -30,6 +30,7 @@ export default {
       locationStore.setDeliveryAddress(unref(address))
 
       onModalClose()
+      address.value = ''
     }
 
     return {

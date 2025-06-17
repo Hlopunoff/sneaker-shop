@@ -9,10 +9,10 @@
 
 #{$block} {
   @include bp.till(bp.$tablet) {
-    margin-top: 32px;
+    margin-top: 10px;
   }
 
   @include bp.from(bp.$tablet) {
-    margin-top: 80px;
+    margin-top: 20px;
   }
 }

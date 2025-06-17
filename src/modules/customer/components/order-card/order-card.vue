@@ -13,6 +13,7 @@
       <span :class="b('amount')">состав / {{ itemsAmount }} шт.</span>
       <span :class="b('delivery-date')">{{ deliveryDateFormatted }}</span>
       <span :class="b('address')">{{ address || 'ул.Белоецкая д.60А кв.41' }}</span>
+      <a :href="`tel:${phone}`" :class="b('phone')">Телефон курьера: {{ phoneFormatted }}</a>
       <app-price :class="b('total')" :value="total"/>
     </div>
     <app-button :class="b('cancel')" text="Отменить заказ" @click="onCancelOrderClick"/>
